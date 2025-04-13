@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro"
+const product_id = Astro.params
+---
+
+<Layout>
+    <div id="productContainerDiv" class="w-full h-2/3 flex flex-row justify-center align-middle">
+        <div id="productImgDiv" class="w-1/2 h flex flex-row justify-end p-4">
+            <img src="" alt="" class="size-2/3 rounded-md">
+        </div>
+        <div id="productInfoDiv" class="w-1/2 flex flex-col justify-start p-4 gap-2">
+            <h2 id="productTitle" class="pt-5"></h2>
+            <p id="productDescription"></p>
+            <h3 id="productPrice"></h3>
+            <p id="productNote"></p>
+        </div>
+    </div>
+</Layout>

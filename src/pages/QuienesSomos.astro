@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/QuienesSomosStyles.css'
+---
+
+<Layout title="Quienes Somos" description="Página de Quienes Somos, conoce nuestro emprendimiento">
+	<div id="pageMainImageDivId">
+		<h1 id="QuienesSomosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )">
+			Quienes Somos...
+		</h1>
+		<h1 id="ConocenosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )"><br>¡Conócenos!</h1>
+	</div>
+	<!-- Sección Principal -->
+	<main>
+		<section class="BiSectionContent">
+			<div class="BiSectionContentDiv">
+				<di class="BiSectionTextDiv">
+					<h2>Somos la Tienda #1 de Arreglos<br>Florales y Frutales en la región</h2>
+					<p ondblclick="cambiarContenidoParrafo( this )">
+						Del campo a tus manos, traemos los productos que más te gustan para ti, flores de altísima calidad, 
+						cuidadas con una dedicación suprema, frutos cultivados por nosotros, orgánicos y sanos. 
+						<br><br>
+						Tanto nuestras flores como nuestros frutos son sembrados, cuidados meticulosamente y cosechados en nuestros campos, 
+						para procurar la más alta calidad, los mejores ejemplares para producir productos excelsos, así el cliente 
+						tiene lo mejor para sus regalos y obsequios. 
+						<br><br>
+						Porque sabemos lo especial que cada ocasión puede ser, 
+						porque comprendemos lo que nuestros clientes quieren y buscan, porque nosotros mismos hemos sido esos clientes, 
+						de allí nace Petals&Fruits, por la necesidad de tener productos premium para todos, a precios asequibles, 
+						para cada uno de los momentos que atesoramos.
+					</p>
+				</di>
+				<di id="biSectionImageDivId1"></di>
+			</div>
+		</section>
+		<section id="logrosSectionId">
+			<h2>Somos los mejores en nuestro ámbito</h2>
+			<div id="logrosContainerId">
+				<div class="Logro" onclick="mostrarMensajeLogro( 'Ganador del Primer Lugar a la Excelencia en Calidad' )">
+					<img id="firstPlaceIconImgId" src="../common/images/first-place-2048x2048.webp" alt="Ganador Primer Lugar Excelencia en Calidad">
+					<h3>5 Veces Ganador del<br>Primer Lugar a la Excelencia en Calidad de Productos y Servicios</h3>
+				</div>
+				<div class="Logro" onclick="mostrarMensajeLogro( 'Acreditación ISO: Máxima Calidad en Procesos de Producción' )">
+					<img src="../common/images/iso27001-2048x2048.webp" alt="Acreditación ISO 27001">
+					<h3>Acreditación ISO<br>Máxima Calidad en Procesos de Producción</h3>
+				</div>
+				<div class="Logro" onclick="mostrarMensajeLogro( 'Máxima frescura garantizada en nuestros productos' )">
+					<img src="../common/images/100FrescoNatural-2048x2048.webp" alt="100% Fresco">
+					<h3>Máxima Frescura en nuestros Productos</h3>
+				</div>
+				<div class="Logro" onclick="mostrarMensajeLogro( 'Garantía de Productos 100% Orgánicos' )">
+					<img src="../common/images/100Organico-2048x2048.webp" alt="100% Orgánico">
+					<h3>Productos cultivados y cosechados sin fertilizantes ni químicos</h3>
+				</div>
+			</div>
+		</section>
+		<section class="BiSectionContent">
+			<div class="BiSectionContentDiv">
+				<di id="biSectionImageDivId2"></di>
+				<di class="BiSectionTextDiv">
+					<h2>Desde nuestros inicios<br>Dedicados a Nuestros Clientes</h2>
+					<p ondblclick="cambiarContenidoParrafo( this )">
+						Empezamos como un emprendimiento familiar, un negocio pequeño pero con muchas ganas de trabajar y salir adelante, 
+						así fue que poco a poco y con mucho esfuerzo, se ha transformado en la empresa que es hoy en día.
+						<br><br>
+						Con el cliente en el centro, hemos ido ganando experiencia en cuanto a sus necesidades y preferencias, además de 
+						conocer las variedades que entran en tendencia en cuanto a diferentes tipos de arreglos florales y frutales, la mejor 
+						forma de producirlos, y la delicadeza para idear nuevas variedades, son aspectos clave que hemos ido refinando. 
+						<br><br>
+						Trabajamos día a día para ser los mejores, para ofrecer los mejores productos, con la más alta calidad y con los mejores 
+						procesos de producción, para aportar valores sobre nuestros competidores, es así que, si te gusta un productos de calidad 
+						y quieres dar un buen regalo, elegirás Petals&Fruits, porque somos garantía de complacencia y somos top en la industría, 
+						porque tu lo mereces, productos de mejor calidad a un mejor precio, porque aquellos a quienes les vas a obsequiar lo merecen, 
+						contribuyendo al mundo con lo que mejor hacemos... Pétalos y Frutas, para ti.
+					</p>
+				</di>
+			</div>
+		</section>
+		<div id="spacerDivId"></div>
+	</main>
+</Layout>
+
+<script>
+	// Cambia el color del título principal al pasar el mouse
+	function cambiarColorTitulo( elemento ) {
+		elemento.style.color = "lightyellow";
+		elemento.style.border = "2px solid lightgreen";
+	}
+	function restaurarColorTitulo( elemento ) {
+		elemento.style.color = ""; // Restaura el color original
+		elemento.style.border = "";
+	}
+
+	// Muestra un mensaje emergente al hacer clic en un logro
+	function mostrarMensajeLogro( mensaje ) {
+		alert( mensaje );
+	}
+
+	// Cambia el contenido de un párrafo al hacer doble clic
+	function cambiarContenidoParrafo( elemento ) {
+		elemento.innerText = "¡Gracias por visitarnos! Estamos felices de compartir nuestra historia contigo.";
+	}
+</script>

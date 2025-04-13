@@ -1,0 +1,107 @@
+/* Variables/Constants */
+:root {
+    
+    /* Colors */
+
+    /* Theme Bound Colors */
+    
+    --dark-theme-background-darkest : rgba( 18, 0, 20, .89 );
+    --dark-theme-background-white-color-13 : rgba( 255, 255, 255, .13 );
+    
+    --light-theme-background-lightmid : #F0F8F8;
+    --light-theme-hero-background: #f9f9f9;
+    --light-theme-foreground-lightest-70 : rgb( 82, 82, 82, .7 );
+    --light-theme-footer-background-color : #ffad7b;
+    
+    /* Foreground Colors for Text */
+
+    --foreground-light-strong-color-bg : #FBFBFB;
+    --foreground-gray-5-color : #555;
+    --foreground-black-color-81 : rgb( 0, 0, 0, .81 );
+    --foreground-black-color-61 : rgb( 0, 0, 0, .61 );
+    --foreground-black-color-31 : rgb( 0, 0, 0, .31 );
+    --foreground-white-color-91 : rgb( 255, 255, 255, .91 );
+    --foreground-white-color-81 : rgb( 255, 255, 255, .81 );
+    --foreground-white-color-61 : rgb( 255, 255, 255, .61 );
+    --foreground-white-color-51 : rgb( 255, 255, 255, .51 );
+
+    /* Accent Colors */
+
+    --primary-accent-color-darkest : #ff4c3c;
+    --primary-accent-color-darkest-70 : rgba( 255, 76, 60, .7 );
+    --primary-accent-color-darkest-30 : rgba( 255, 76, 60, .3 );
+    --primary-accent-color-darkmid : #ff6f61;
+    --primary-accent-color-darkmid-35 : rgba( 255, 111, 97, .35 );
+    --primary-accent-color-darksoft : #ffa07a;
+    --primary-accent-color-light : orange;
+    --primary-accent-color-lesslight : darkorange;
+    --primary-accent-color-lightless : orangered;
+    --secondary-accent-color-darkest-75 : rgba( 241, 227, 125, .75 );
+    --secondary-accent-color-darkest : #F1E37D;
+    --secondary-accent-color-darkmid : #FAF5D0;
+    --thirdy-accent-color-darkest : #151C65;
+    --thirdy-accent-color-darkmid : #1A237E;
+
+    /* State Colors */
+
+    --success-color : #00b85f;
+    --success-color-30 : rgba( 0, 184, 95, .3 );
+    --success-color-light : #00E676;
+    --success-color-light-30 : rgba( 0, 230, 118, .3 );
+    --error-color : #B00020;
+    --error-color-light : #af8d93;
+    --disabled-background-color : grey;
+    --disabled-color : lightgray;
+    
+    /* Numeric and Measure Constants/Variables */
+
+    --blocks-border: 2px solid var( --primary-accent-color-darkmid ); 
+    --border-white-d-color: #ddd;
+    --footer-height: 263px;
+}
+
+
+/* Fonts */
+
+
+@font-face {
+    font-family: 'EncodeSans';
+    src: url('/public/fonts/EncodeSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EncodeSans';
+    src: url('/public/fonts/EncodeSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EncodeSans';
+    src: url('/public/fonts/EncodeSans_Expanded-ExtraLight.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/public/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/public/fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Danymeka';
+    src: url('/public/fonts/Danymeka-lxx2D.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}

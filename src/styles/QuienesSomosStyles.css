@@ -1,0 +1,126 @@
+@import url( "BaseCommonStyles.css" );
+
+#pageMainImageDivId {
+    background-image: url( "../images/apple_1920.png" );
+    height: 1000px;
+
+    h1 {
+        width: fit-content;
+        margin-left: 8%;
+        line-height: 39pt;
+        font-size: 120pt;
+        color: transparent;
+        background: linear-gradient( 180deg, rgba( 255, 255, 255, 1 ), rgba( 255, 255, 255, .5 ), rgba( 255, 255, 255, 1 ), rgba( 255, 255, 255, 5 ) );
+        background-clip: text;
+        border: 2px solid transparent;
+        transition: color .2s ease-in, border .4s ease-in;
+
+        &:hover {
+            transition: color .3s ease-out, border .5s ease-out;
+        }
+    }
+
+    #QuienesSomosId {
+        margin-top: 545px;
+        padding: 50px 0;
+        background: linear-gradient( 50deg, rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .5 ), rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .7 ) );
+        background-clip: text;
+    }
+
+    #ConocenosId {  
+        padding-bottom: 50px;
+        background: linear-gradient( 290deg, rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .5 ), rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .7 ) );
+        background-clip: text;
+    }
+}
+
+section {
+    padding-top: 12rem;
+}
+
+.BiSectionContent {
+    display: flex;
+    justify-content: center;
+
+    .BiSectionContentDiv {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5%;
+    
+        .BiSectionTextDiv {
+            width: 80%;
+
+            h2 {
+                text-align: center;
+                font-family: "Danymeka";
+                font-size: 65pt;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: large;
+                line-height: 35pt;
+            }
+        }
+    
+        #biSectionImageDivId1 {
+            width: 80%;
+            height: 100%;
+            background-image: url( "../images/lavenders-field_1920.jpg" );
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 12px;
+        }
+
+        #biSectionImageDivId2 {
+            width: 80%;
+            height: 100%;
+            background-image: url( "../images/flowes-startup.jpg" );
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 12px;
+        }
+    }
+}
+
+#logrosSectionId {
+    text-align: center;
+
+    h2 {
+        padding-bottom: 7rem;
+    }
+
+    #logrosContainerId {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    
+        .Logro {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        
+            img {
+                width: 100%;
+            }
+
+            #firstPlaceIconImgId {
+                width: 161px;
+            }
+        
+            h3 {
+                padding-top: 25px;
+            }
+        }
+    }
+}
+
+#spacerDivId {
+    height: 12rem;
+    border-bottom: var( --blocks-border );
+    margin-inline: -4.3%;
+}

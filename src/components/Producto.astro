@@ -1,0 +1,48 @@
+---
+const { src, alt, title, description } = Astro.props 
+---
+
+<div class="producto" >
+    <img src={src} alt={alt}>
+    <h3>{title}</h3>
+    <p>{description}</p>
+</div>
+
+<style>
+    .producto {
+        height: fit-content;
+        border: 1px solid var( --border-white-d-color );
+        padding: 1rem;
+        width: 300px;
+        box-shadow: 0 0 7px rgba( 0, 0, 0, .3 );
+        border-radius: 10px;
+        text-align: center;
+        border: 3px solid transparent;
+        transition: border .15s ease-out;
+        &:hover {
+            transition: border .2s ease;
+        }
+    
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: border .15s ease-out;
+            &:hover {
+                transition: border .2s ease;
+            }
+        }
+        
+        h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            font-size: 0.9rem;
+            color: var( --foreground-gray-5-color );
+            text-align: center;
+        }
+    }
+</style>

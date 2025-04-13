@@ -1,0 +1,18 @@
+.Productos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+    margin-inline: -4.3%;
+    text-align: center;
+
+    .GrupoProductos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        border-bottom: var( --blocks-border );
+        padding-bottom: 7rem;
+
+    }
+}

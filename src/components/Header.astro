@@ -1,0 +1,35 @@
+---
+import '../styles/HeaderStyles.css'
+---
+<header>
+    <div class="HeaderLogoDivClass">
+        <a href="/index/" target="_parent" data-page="index">
+            <img src="../assets/images/Petals&Fruits_Logo_Only_Text_White.webp" alt="Petals&Fruits Text Logo" height="40px">
+        </a>
+    </div>
+    <div  class="HeaderLinksClass">
+        <nav>
+            <ul>
+                <li data-page="index"><a href="/index/" target="_parent" >Inicio</a></li>
+                <li data-page="QuienesSomos"><a href="/QuienesSomos/" target="_parent" >Quienes Somos</a></li>
+                <li data-page="ProductosServicios"><a href="/ProductosServicios/" target="_parent" >Productos y Servicios</a></li>
+                <li data-page="NuestroEquipo"><a href="/NuestroEquipo/" target="_parent" >Nuestro Equipo</a></li>
+                <li data-page="Contactenos"><a href="/Contactenos/" target="_parent" >Contáctenos</a></li>
+            </ul>
+        </nav>        
+    </div>
+</header>
+<script>
+    window.addEventListener( 'message', ( event ) => {
+        const currentPage = event.data;
+        const menuNavLinks = document.querySelectorAll( '.HeaderLinksClass nav ul li' );
+
+        menuNavLinks.forEach( menuLink => {
+            
+            if ( menuLink.getAttribute( 'data-page' ) === currentPage && !menuLink.classList.contains( 'ActivePageMenu' ) ) {
+                menuLink.classList.add( 'ActivePageMenu' );
+            } else if ( menuLink.classList.contains( 'ActivePageMenu' ) && menuLink.getAttribute( 'data-page' ) != currentPage )
+                menuLink.classList.remove( 'ActivePageMenu' );
+        } );
+    } );
+</script>

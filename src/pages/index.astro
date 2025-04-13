@@ -1,11 +1,146 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import ClarkCodesAudioPlayer from '../components/ClarkCodesAudioPlayer.astro';
 import Layout from '../layouts/Layout.astro';
-
+import '../styles/global.css'
+import '../styles/productosStyles.css'
+import '../styles/indexStyles.css'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+import { getCollection } from 'astro:content';
+const mostPopularProducts = await getCollection( 'mostPopularProducts' )
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
+	<div id="landingWelcomeDivId">
+		<h1>Dílo con Flores...<br> Exprésalo con Frutas</h1>
+	</div>
+	<!-- Sección Principal -->
+	<main>
+		<section class="hero">
+			<h2>¡Elige tu arreglo perfecto!</h2>
+			<p>Entregamos frescura y elegancia directamente a tu hogar.</p>
+			<button onclick="handleButtonClick('Explorar Productos'); window.location.href='/ProductosServicios/'">Explorar Productos</button>
+		</section>
+		<section class="Productos">
+			<h2>Top Productos más elegidos</h2>
+			<div class="GrupoProductos">
+				<!-- TODO: Add products from the DB and not this way -->
+				<div class="producto" >
+					<img src="../common/images/Bouquet-RosasRosadas_1280.jpg" alt="Bouquet de Rosas Rosadas">
+					<h3>Esfera de Rosas Pastel</h3>
+					<p>Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado.</p>
+				</div>
+				<div class="producto" >
+					<img src="../common/images/Bouquet-RosasBlancasAmarillas_1280.jpg" alt="Rosas Blancas y Amarillas">
+					<h3>Caja Presente de Rosas</h3>
+					<p>Rosas Blancas y Amarillas en una caja de obsequio con un lacito, elegante y detallista.</p>
+				</div>
+				<div class="producto" >
+					<img src="../common/images/Frutales_ChocoFresas_Multisabor-2048x2048.jpg" alt="Multisabor">
+					<h3>Multisabor</h3>
+					<p>Un variado vaso con fresas naturales, y bañadas en chocolate pero aderezadas con diferentes deliciosos aditivos entre maní, coco, chocolate blanco y el que tu elijas.</p>
+				</div>
+				<div class="producto" >
+					<img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp" alt="Rebanadas Frutales">
+					<h3>Rebanadas Frutales</h3>
+					<p>Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir.</p>
+				</div>
+			</div>
+		</section>
+		<section class="Quote">
+			<div>
+				<i><q>El amor es un fruto que madura en todas las estaciones<br>y que se encuentra al alcance de todas las manos.</q></i><br>
+				<span>Maria Teresa de Calculta</span>
+			</div>                
+		</section>
+		<div id="landingPicture2DivId">
+			<h1>Llena sus vidas de flores y amor<br>mientras los puedes abrazar.</h1>
+			<button onclick="window.location.href='ProductosServicios.html'">Elige el Regalo Perfecto</button>
+		</div>
+		<section class="FigureClass">
+			<figure> 
+				<img src="../assets/images/fruits-heart-2048x2048.webp" alt="Corazón de Frutas" width="40%">
+				<figcaption>Figura: Corazón hecho de Frutas.</figcaption>
+				<h2 class="IntermidiateTitle">Llega a sus corazónes,<br>contenta con Frutas sus almas.</h2>
+			</figure> 
+		</section>
+		<section id="audioPlayerSectionId">
+			<ClarkCodesAudioPlayer src="/public/audios/Love Thing.mp3" songName="Love Thing" artistAlbum="Joe Satriani - Crystal Planet" coverImg="../assets/images/Satriani-BCN-2023-1.jpg" />
+		</section>
+		<h2 class="IntermidiateTitle">Así como nuestras Flores y Frutas...<br>¡Disfruta de una buena Música!</h2>
+		<section id="audioPlayerSectionId">
+			<ClarkCodesAudioPlayer src="/public/audios/Always With Me, Always With You.mp3" songName="Always with me, always with you" artistAlbum="Joe Satriani - Surfing with the alien" coverImg="../assets/images/Satriani-2-1140x500.jpg" />
+		</section>
+		<div class="Spacer"></div>
+		<section class="RazonesEleccion">
+			<div>
+				<h2>Preguntas Frecuentes</h2>
+				<details>
+					<summary>
+						¿Por qué comprar tu regalo en Petals&Fruits?
+					</summary> 
+					<p>
+						Nuestra tienda cuenta con arreglos exclusivos en Flores y Frutas, de todo tipo y 
+						para todo tipo de presupuesto, desde muy elaboradas hasta opciones más económicas pero 
+						que conservan la elegancia y atención al detalle que nos caracterizan. Los mejores 
+						arreglos de Frutas y Flores para los que más quieres.
+					</p>
+					</details>
+				<details>
+					<summary>
+						¿Qué regalos Puedes comprar?
+					</summary>
+					<p>
+						Puedes obtener cualquiera que gustes sin restricción, y en la cantidad que necesites, 
+						pero en cuanto a motivos de regalo, contamos con arreglos para san valentin, para el día 
+						de las madres y del padre, para toda ocasión de parejas (novio/a y/o esposo/a), para cumpleaños, 
+						además, puedes hacer tu pedido personalizado con arreglos exclusivos que todavía no existan, 
+						con tus indicaciones y a tu gusto.
+					</p>
+				</details>
+				<details>
+					<summary>
+						¿Cómo se puede realizar el pago?
+					</summary>
+					<p>
+						Por ahora solo es posible pagar en una tienda en efectivo y con tarjeta de creédito o débito, 
+						sin embargo se tienen planes para que en un futuro próximo se pueda realizar el pago en línea con 
+						por diferentes canales con las opciones más populares.
+					</p>
+				</details>
+			</div>
+		</section>
+	</main>
+
 </Layout>
+
+<script>
+	// Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones
+	function handleButtonClick() {
+		alert( "¡Gracias por explorar los productos de Petals&Fruits!" );
+	}
+
+	// Evento cuando la página se carga completamente
+	window.onload = function() {
+		console.log( "Bienvenido a la tienda Petals&Fruits. ¡Estamos felices de que estés aquí!" );
+
+		// Asignamos en las propiedades de eventos mouseover and mouseout no solo de algunos sino de todos los elementos con la clase .producto recorriendolos todos
+		document.querySelectorAll( '.producto' ).forEach( p => 
+		{ 
+			p.setAttribute( 'onmouseover', "handleMouseOver( this, this.querySelector( 'img' ) )" );
+			p.setAttribute( 'onmouseout', "handleMouseOut( this, this.querySelector( 'img' ) )" );
+		} );
+	}
+
+	// Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
+	function handleMouseOver( container, productImage ) {
+		container.style.border = "3px solid lightgreen" // Cambio de color de borde
+		productImage.style.border = "2px solid lightgreen";
+	}
+
+	function handleMouseOut( container, productImage ) {
+		container.style.border = ""; // Eliminar el borde cuando el mouse se va
+		productImage.style.border = "";
+	}
+</script>

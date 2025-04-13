@@ -1,0 +1,404 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/ProductosServiciosStyles.css'
+---
+
+<Layout title="Productos y Servicios" description="Página de Productos y Servicios, revisa lo que te ofrecemos y escoge lo que quieras">
+	<div id="pageMainImageDivId">
+		<h1>Del campo...<br>A tus manos.</h1>
+	</div>
+	<!-- Sección Principal -->
+	<main>
+		<section id="contenidoSectionId">
+			<h2 onclick="handleMessageClick();" style="cursor: pointer;">Contenido</h2>
+			<nav>
+				<h3>Arreglos Florales</h3>
+				<ul>
+					<li><a href="#sanValentinTitleId">San Valentín</a></li>
+					<li><a href="#parejasTitleId">Parejas</a></li>
+					<li><a href="#diaPadreMadreTitleId">Día de la Madre y del Padre</a></li>
+					<li><a href="#cumpleaniosTitleId">Cumpleaños</a></li>
+				</ul>
+				<h3>Arreglos Frutales</h3>
+				<ul>
+					<li><a href="#gourmetTitleId">Gourmet</a></li>
+					<li><a href="#chocoFresasTitleId">ChocoFresas</a></li>
+					<li><a href="#elegantesTitleId">Elegantes</a></li>
+					<li><a href="#surtidosTitleId">Surtidos</a></li>
+					<li><a href="#infantilesTitleId">Infantiles</a></li>
+				</ul>
+			</nav>
+		</section>
+		<h2>Arreglos Florales</h2>
+		<section class="Productos">
+			<h2 id="sanValentinTitleId">San Valentín</h2>
+			<div class="GrupoProductos">
+				<div class="producto" >
+					<img src="../common/images/CorazonGirasoles.webp" alt="Corazón de Girasoles">
+					<h3>Corazón de Girasoles</h3>
+					<p>Refinadas Rosas Rojas adornadas con Girasoles en el borde, y con chocolates Ferrero Rocher en el centro.</p>
+				</div>
+				<div class="producto" >
+					<img src="../common/images/LetraRosas.jpg" alt="Letra de Rosas">
+					<h3>Letra de Rosas</h3>
+					<p>Elegante fondo de Rosas Rojas con letras en el centro formadas con Rosas Blancas.</p>
+				</div>
+				<div class="producto" >
+					<img src="../common/images/Bouquet-RosasRosadas_1280.jpg" alt="Bouquet de Rosas Pastel">
+					<h3>Esfera de Rosas Pastel</h3>
+					<p>Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado.</p>
+				</div>
+				<div class="producto" >
+					<img src="../common/images/valentine-BouquetRegaloRosasClaras_1280.jpg" alt="Caja Bouquet de Rosas Claras">
+					<h3>Caja Bouquet de Rosas Diversas</h3>
+					<p>Colorido arreglo de Rosas variadas de diferente tipo en una hermosa caja cilíndrica.</p>
+				</div>
+			</div>
+			<h2 id="parejasTitleId">Parejas</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Bouquet-Lilas_1280.jpg" alt="Bouquet de Lilas">
+					<h3>Bouquet de Lilas</h3>
+					<p>Ramo de Lilas elegantemente armado.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Bouquet-VerdeSublime_1280.jpg" alt="Bouquet Verde Sublime">
+					<h3>Bouquet Verde Sublime</h3>
+					<p>Sofisticado arreglo circular con flores verdes y lavanda, de aspecto mágico y encantador.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Ramo-Violetas_1280.jpg" alt="Ramo de Violetas Románticas">
+					<h3>Ramo de Violetas Románticas</h3>
+					<p>Ramo de Flores violetas abiertas, irradia romanticismo.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/vase-FloresClaras_1280.jpg" alt="Florero de Flores Claras">
+					<h3>Florero de Flores Claras</h3>
+					<p>Elegante vasija con rosas y flores de colores claros.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/wedding-BouquetVinculo_1280.jpg" alt="Bouquet Vínculo">
+					<h3>Bouquet Vínculo</h3>
+					<p>Fino ramo armado con rosas blancas puras y rosadas, con un aspecto excelso.</p>
+				</div>
+			</div>
+			<h2 id="diaPadreMadreTitleId">Día de la Madre y del Padre</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Clasico.webp" alt="Canasta Clásica">
+					<h3>Canasta Clásica</h3>
+					<p>Una canasta con flores variadas, muy usadas en épocas de ayer y hoy.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Paternal.webp" alt="Arreglo Paternal">
+					<h3>Paternal</h3>
+					<p>Vaso sobrio con Flores y Ramas de colores contrastantes, producen calma y vitalidad, perfecto para padres.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Seniorial.jpg" alt="Arreglo Señorial">
+					<h3>Señorial</h3>
+					<p>Arreglo grande de Rosas Blancas, magistral con un toque clásico.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Tulipanes_1280.jpg" alt="Tulipanes Paternales">
+					<h3>Tulipanes Paternales</h3>
+					<p>Tulipanes para aquellos de gustos específicos, con un color vibrante.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/vase-Imperial_1280.jpg" alt="Florero Imperial">
+					<h3>Florero Imperial</h3>
+					<p>Con flores variadas, un balance entre variedad y elegancia suprema, viene con una vasija rectangular de piedra labrada, una pieza artesanal y artística de estilo renacentista que le da el toque supremo.</p>
+				</div>
+			</div>
+			<h2 id="cumpleaniosTitleId">Cumpleaños</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Bouquet-RosasBlancasAmarillas_1280.jpg" alt="Rosas Blancas y Amarillas">
+					<h3>Caja Presente de Rosas</h3>
+					<p>Rosas Blancas y Amarillas en una caja de obsequio con un lacito, elegante y detallista.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Bouquet-RosasBlancasLirios_1280.jpg" alt="Bouquet de Rosas Blancas y Lirios">
+					<h3>Bouquet Austral</h3>
+					<p>Fino entramado de Rosas Blancas y Lirios, idóneo para familiares y amigos, para aquellos a quien desee mostrarles confianza.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Bouquet-ColoridoDiverso_1280.jpg" alt="Bouquet Colorido Diverso">
+					<h3>Bouquet Colorido Diverso</h3>
+					<p>Supremamente elegante entramado de Rosas y Flores coloridas, de tonos pasteles, estupendo obsequio desbordante de elegancia.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Canasta-GirasolesRosasClaras_1280.jpg" alt="Canasta de Girasoles y Rosas Claras">
+					<h3>Canasta Sol Rosa</h3>
+					<p>Canasta de Girasoles con Rosas, acojedor y de estilo hogareño.</p>
+				</div>
+			</div>
+		</section>
+		<section class="Remember">
+			<h2>¡Recuerda!</h2>
+			<p>
+				Los arreglos florales y frutales en las diferentes categorías son solo una sugerencia para cada  
+				ocasión, pero realmente puedes comprar el arreglo que quieras para la ocasión que quieras, lo bueno de 
+				todos nuestros arreglos es que cada uno de ellos ponderan una alta calidad, atención al detalle y 
+				una estética profesional, por lo que al final, todos ellos quedarán espectacularmente bien en cualquier tipo de ocasión.
+			</p>
+		</section>
+		<h2>Arreglos Frutales</h2>
+		<section class="Productos">
+			<h2 id="gourmetTitleId">Gourmet</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Frutal_Gourmet_BerrySandia_1280.jpg" alt="Berry Sandia">
+					<h3>Berry Sandia</h3>
+					<p>Frutas tropicales frescas: sandia, arándanos, moras y frambuesas.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Gourmet_Piqueos-2048x2048.jpg" alt="Piqueos">
+					<h3>Piqueos</h3>
+					<p>Un toque gourmet con frutas seleccionadas sobre una base de melón, ideal para regalar a los más exigentes.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Gourmet_CopaSaludable-2048x2048.jpg" alt="Copa Saludable">
+					<h3>Copa Saludable</h3>
+					<p>Una copa con frutas adecuadas, tanto diuréticas como para el sistema digestivo.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_Gourmet_SunnyBlue-2048x2048.jpg" alt="Sunny Blue">
+					<h3>Sunny Blue</h3>
+					<p>Un toque gourmet excelso y premium, con frutas tropicales, decoradas de manera exquisita.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_Gourmet_Degustacion-2048x2048.jpg" alt="Degustación">
+					<h3>Degustación</h3>
+					<p>Frutas cortadas en rodajas, con forma de flor, con pistachos, frambuesas y moras.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp" alt="Rebanadas Frutales">
+					<h3>Rebanadas Frutales</h3>
+					<p>Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir.</p>
+				</div>
+			</div>
+			<h2 id="chocoFresasTitleId">ChocoFresas</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Frutales_ChocoFresas_BaniadoParcial-2048x2048.jpg" alt="Bañado Parcial">
+					<h3>Bañado Parcial</h3>
+					<p>Vaso de Fresas naturales con Fresas bañadas en chocolate derretido, adornadas con chocolate blanco y aderezadas con maní.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_ChocoFresas_Multisabor-2048x2048.jpg" alt="Multisabor">
+					<h3>Multisabor</h3>
+					<p>Un variado vaso con fresas naturales, y bañadas en chocolate pero aderezadas con diferentes deliciosos aditivos entre maní, coco, chocolate blanco y el que tu elijas.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_ChocoFresas_Empastadas-2048x2048.jpg" alt="Empastadas">
+					<h3>Empastadas</h3>
+					<p>Para los amantes del chocolate puro, son Fresas bañadas en puro chocolate negro, enfriadas para un toque empastado.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_ChcoFresas_GlaciaresMagnum-2048x2048.jpg" alt="Glaciares Magnum">
+					<h3>Glaciares Magnum</h3>
+					<p>Una opción Gourmet Premium con Fresas bañadas en chololate suizo Magnum de la más alta calidad, aderezadas con diferentes aditamentos como coco rallado, chispas de chocolate y lineas de dulce de leche, curadas al frío, un manjar de dioses.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutales_ChocoFresas_Fresas de Pascua-2048x2048.jpg" alt="Fresas de Pascua">
+					<h3>Glaciares de Pascua</h3>
+					<p>Son Fresas Glaciares Magnum con motivos de huevos de pascua, así como aderezos adicionales que le dan un valor agregado exquisito.</p>
+				</div>
+			</div>
+			<h2 id="elegantesTitleId">Elegantes</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Frutal_Elegante_Plenitud.jpg" alt="Plenitud">
+					<h3>Plenitud</h3>
+					<p>Fresas, uvas y piñas, con lindas formas y en un arreglo con una alta elegancia.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Elegante_FrescuraPalmerina.webp" alt="Frescura Palmerina">
+					<h3>Frescura Palmerina</h3>
+					<p>Fresas, melón, uvas y piña, en una arreglo con motivo de palmera, esteticamente elaborado.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Elegante_PiniaHawaiana.jpg" alt="Piña Hawaiana">
+					<h3>Piña Hawaiana</h3>
+					<p>Alta dotación de Piña Hawaiana con fresas, delicioso para cualquier amante de la piña.</p>
+				</div>
+			</div>
+			<h2 id="surtidosTitleId">Surtidos</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Frutal_Surtido_Personal.jpg" alt="Personal">
+					<h3>Personal</h3>
+					<p>Dotación personal de frutas variadas.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Surtido_Familiar_1280.jpg" alt="Familiar">
+					<h3>Familiar</h3>
+					<p>Canasta familiar de frutas variadas, espectacular para obsequiar en reuniones familiares y amistosas.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Surtido_CanastaPoderosa_1280.png" alt="Canasta Poderosa">
+					<h3>Canasta Poderosa</h3>
+					<p>Una Gran Canasta con muchas frutas variadas, de pequeño y mediano tamaño.</p>
+				</div>
+			</div>
+			<h2 id="infantilesTitleId">Infantiles</h2>
+			<div class="GrupoProductos">
+				<div class="producto">
+					<img src="../common/images/Frutal_Infantil_Fiestero.webp" alt="Fiestero">
+					<h3>Fiestero</h3>
+					<p>Vaso con Fresas, Moras, Uvas y Galletas, adecuado para fiestas infantiles.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Infantiles_CanastitaFeliz-2048x2048.webp" alt="Canastita Feliz">
+					<h3>Canastita Feliz</h3>
+					<p>Canasta pequeña de paja toquilla armada artesanalmente, con frutas variadas como Fresas, Mandarinas, Uvas, Naranjas y Piña adornada como carita feliz con jalea de chocolate.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Infantil_CanastonGrupal-2048x2048.webp" alt="Canastón Grupal">
+					<h3>Canastón Grupal</h3>
+					<p>Vaso Grande con frutas variadas como Fresas, Uvas, Piña y Naranja, ideal para compartir en grupo.</p>
+				</div>
+				<div class="producto">
+					<img src="../common/images/Frutal_Infantil_JarrosFrutales-2048x2048.jpg" alt="Jarritos Frutales">
+					<h3>Jarritos Frutales</h3>
+					<p>Jarros personales con frutas variadas, con aderezos opcionales, adecuado para sorpresas para niños en fiestas infantiles.</p>
+				</div>
+			</div>
+		</section>
+		<section id="videoDIYRecomendacionArreglo">
+			<h2>También puedes hacerlo tu mismo en casa</h2>
+			<iframe id="youtubeVideoId" width="900" height="520" src="https://www.youtube.com/embed/kKCzeJ9IEh4" 
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+				allowfullscreen title="Video de YouTube: Crea un arreglo de flores y frutas para tu madre | Un Nuevo Día | Telemundo">
+					Crea un arreglo de flores y frutas para tu madre | Un Nuevo Día | Telemundo💚
+			</iframe>
+		</section>
+		<section id="beneficios">
+			<h2>Beneficios de adquirir Arreglos Florales</h2>
+			<ol>
+				<li>Sostenibilidad Ambiental</li>
+				<li>Apoyo a la Economía Local</li>
+				<li>Personalización y Relación con el Florista</li>
+				<li>Percepción de Colores y Fragancias Naturales</li>
+				<li>Fomento de la Agricultura Local</li>
+				<li>Promoción de la Cultura Local</li>
+				<li>Reducción del Estrés y la ansiedad</li>
+				<li>Estímulo de emociones positivas</li>
+				<li>Promoción de la concentración y la creatividad</li>
+				<li>Purificación del aire</li>
+				<li>Aromaterapia floral</li>
+				<li>Estimulación cognitiva</li>
+			</ol>
+		</section>
+		<section id="FloresYSusBeneficios">
+			<h2>Beneficios de las Flores</h2>
+			<table border="1">
+				<caption>Tabla de Referencia: Flores y sus Beneficios</caption>
+				<tr>
+					<th>Flor</th> 
+					<th>Beneficios</th>
+					<th>Cuidados</th>
+					<th>Temporada Ideal de Cultivo</th>
+				</tr>
+				<tr>
+					<td>Rosa</td>
+					<td>Mejora el estado de ánimo, símbolo de amor y aprecio.</td>
+					<td>Riego regular, luz solar directa, poda anual</td>
+					<td>Primavera a principios de otoño</td>
+				</tr>
+				<tr>
+					<td>Lavanda</td>
+					<td>Propiedades relajantes, ayuda a aliviar el estrés y mejorar el sueño.</td>
+					<td>Suelo bien drenado, luz solar plena, poda ocasional</td>
+					<td>Primavera a principios de verano</td>
+				</tr>
+				<tr>
+					<td>Girasol</td>
+					<td>Estimula la energía positiva, asociado con la vitalidad y la felicidad.</td>
+					<td>Suelo bien drenado, luz solar plena, riego regular</td>
+					<td>Primavera a principios de otoño</td>
+				</tr>
+				<tr>
+					<td>Caléndula</td>
+					<td>Antiinflamatorio, se utiliza en productos para el cuidado de la piel.</td>
+					<td>Suelo fértil, riego moderado, luz solar plena</td>
+					<td>Primavera a finales de verano</td>
+				</tr>
+				<tr>
+					<td>Tulipán</td>
+					<td>Representa la elegancia y la frescura, puede elevar el estado de ánimo.</td>
+					<td>Suelo bien drenado, luz solar parcial a completa</td>
+					<td>Otoño para tulipanes de primavera</td>
+				</tr>
+				<tr>
+					<td>Orquídea</td>
+					<td>Mejora la concentración y el equilibrio emocional, adecuada para interiores.</td>
+					<td>Sustrato específico, riego controlado, luz indirecta</td>
+					<td>Todo el año, dependiendo de la variedad</td>
+				</tr>
+				<tr>
+					<td>Jazmín</td>
+					<td>Fragancia relajante, asociado con la reducción del estrés y la ansiedad.</td>
+					<td>Suelo bien drenado, luz solar completa</td>
+					<td>Primavera a principios de verano</td>
+				</tr>
+				<tr>
+					<td>Crisantemo</td>
+					<td>Conocido por sus propiedades medicinales en algunas culturas, se asocia con la vida y la alegría.</td>
+					<td>Suelo bien drenado, luz solar completa</td>
+					<td>Primavera a mediados de otoño</td>
+				</tr>
+				<tr>
+					<td>Clavel</td>
+					<td>Variedad de colores y significados, se utiliza en aromaterapia.</td>
+					<td>Suelo bien drenado, riego moderado, luz solar completa</td>
+					<td>Primavera a principios de verano</td>
+				</tr>
+				<tr>
+					<td>Margarita</td>
+					<td>Representa la pureza y la inocencia, puede tener propiedades calmantes.</td>
+					<td>Suelo fértil, riego regular, luz solar completa</td>
+					<td>Primavera a finales de verano</td>
+				</tr>
+				<tfoot> 
+					<tr>
+						<td colspan="4">
+							Fuente: <a href="https://floryou.com.mx/florerias-en-queretaro/flores-a-domicilio/arreglos-de-flores/beneficios-de-las-flores/?srsltid=AfmBOoqnb18QXHaS0ESXfUCybuSs784shpqFYlCQgltcrOtDbrC1mQjW" target="_blank">FlorYOU.com.mx</a>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</section>
+	</main>
+</Layout>
+
+<script>
+	// Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones
+	function handleMessageClick() {
+		alert("¡Gracias por explorar los productos de Petals&Fruits!");
+	}
+
+	// Evento cuando la página se carga completamente
+	window.onload = function() {
+		console.log("Bienvenido a la tienda Petals&Fruits. ¡Estamos felices de que estés aquí!\nTenemos una extensa diversidad de Productos para ti, ¡Disfrutalos!.");
+		
+		// Asignamos en las propiedades de eventos mouseover and mouseout no solo de algunos sino de todos los elementos con la clase .producto recorriendolos todos
+		document.querySelectorAll( '.producto' ).forEach( p => 
+		{ 
+			p.setAttribute( 'onmouseover', "handleMouseOver( this, this.querySelector( 'img' ) )" );
+			p.setAttribute( 'onmouseout', "handleMouseOut( this, this.querySelector( 'img' ) )" );
+		} );
+	}
+
+	// Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
+	function handleMouseOver( container, productImage ) {
+		container.style.border = "3px solid lightgreen" // Cambio de color de borde
+		productImage.style.border = "2px solid lightgreen";
+	}
+
+	function handleMouseOut( container, productImage ) {
+		container.style.border = ""; // Eliminar el borde cuando el mouse se va
+		productImage.style.border = "";
+	}
+</script>
