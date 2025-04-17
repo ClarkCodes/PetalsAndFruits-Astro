@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 
-export const POST:APIRoute = ( { params, request } ) => {
-
-    
-    return new Response( "Helo World!", { status: 200 } )
+export const GET:APIRoute = ( { params, request } ) => {
+    return new Response( 
+        "Helo World!", 
+        { status: 200 } 
+    )
 }

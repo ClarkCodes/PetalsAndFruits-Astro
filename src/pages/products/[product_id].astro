@@ -1,18 +1,23 @@
 ---
-import Layout from "../../layouts/Layout.astro"
-const product_id = Astro.params
+import Layout from "../../layouts/Layout.astro";
+import { ClientRouter } from "astro:transitions";
+import { getProduct } from './utils.ts';
+
+const { product_id } = Astro.params;
+const product = await getProduct( Number( product_id ) );
 ---
 
 <Layout>
+    <ClientRouter></ClientRouter>
     <div id="productContainerDiv" class="w-full h-2/3 flex flex-row justify-center align-middle">
         <div id="productImgDiv" class="w-1/2 h flex flex-row justify-end p-4">
-            <img src="" alt="" class="size-2/3 rounded-md">
+            <img src={ product.ps_img_path } alt={product.alt} class="size-2/3 rounded-md" transition:name="product-img-transition">
         </div>
         <div id="productInfoDiv" class="w-1/2 flex flex-col justify-start p-4 gap-2">
-            <h2 id="productTitle" class="pt-5"></h2>
-            <p id="productDescription"></p>
-            <h3 id="productPrice"></h3>
-            <p id="productNote"></p>
+            <h2 id=productName class="pt-5">{product.ps_name}</h2>
+            <p id="productDescription">{product.ps_description}</p>
+            <h3 id="productPrice">{product.ps_price}</h3>
+            <p id="productNote" class="text-xs italic"><strong>Nota:</strong> Este producto es una vista previa de la version de prueba.</p>
         </div>
     </div>
 </Layout>

@@ -1,10 +1,12 @@
 ---
-const { src, alt, title, description } = Astro.props 
+const { id, img_src, alt, name, description } = Astro.props 
 ---
 
 <div class="producto" >
-    <img src={src} alt={alt}>
-    <h3>{title}</h3>
+    <a href={`/products/${id}`} target="_self">
+        <img src={img_src} alt= {alt} transition:name="product-img-transition" transition:animate="slide" transition:persist>
+    </a>
+    <h3>{name}</h3>
     <p>{description}</p>
 </div>
 

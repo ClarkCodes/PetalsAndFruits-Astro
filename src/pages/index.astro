@@ -7,8 +7,24 @@ import '../styles/indexStyles.css'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
-import { getCollection } from 'astro:content';
-const mostPopularProducts = await getCollection( 'mostPopularProducts' )
+//import { getCollection } from 'astro:content';
+//const mostPopularProducts = await getCollection( 'mostPopularProducts' )
+import { db, max, asc, eq, SaleHistory, ProductService } from 'astro:db';
+import Producto from '../components/Producto.astro';
+import { getProduct } from './products/utils';
+
+const mostPopularIds = await db.select( { value: max( SaleHistory.quant ) } ).from( SaleHistory ).orderBy( asc( SaleHistory.quant ) ).limit( 4 );
+let mostPopularProducts: any[] = [];
+
+mostPopularIds.forEach( id_row => {
+	let id: number = 0;
+	if( id_row.value != null ){
+		id = Number( id_row.value );
+		//let retrievedProduct = getProduct( id );
+		mostPopularProducts.push( getProduct( id ) );
+	}
+} );
+
 ---
 
 <Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
@@ -26,7 +42,13 @@ const mostPopularProducts = await getCollection( 'mostPopularProducts' )
 			<h2>Top Productos más elegidos</h2>
 			<div class="GrupoProductos">
 				<!-- TODO: Add products from the DB and not this way -->
-				<div class="producto" >
+				{ 
+					mostPopularProducts.map( 
+						p => <Producto id={p.ps_id} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					) 
+				}
+
+				{/* <div class="producto" >
 					<img src="../common/images/Bouquet-RosasRosadas_1280.jpg" alt="Bouquet de Rosas Rosadas">
 					<h3>Esfera de Rosas Pastel</h3>
 					<p>Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado.</p>
@@ -45,7 +67,7 @@ const mostPopularProducts = await getCollection( 'mostPopularProducts' )
 					<img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp" alt="Rebanadas Frutales">
 					<h3>Rebanadas Frutales</h3>
 					<p>Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir.</p>
-				</div>
+				</div> */}
 			</div>
 		</section>
 		<section class="Quote">
@@ -116,12 +138,12 @@ const mostPopularProducts = await getCollection( 'mostPopularProducts' )
 </Layout>
 
 <script>
-	// Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones
+	{/* Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones */}
 	function handleButtonClick() {
 		alert( "¡Gracias por explorar los productos de Petals&Fruits!" );
 	}
 
-	// Evento cuando la página se carga completamente
+	{/* Evento cuando la página se carga completamente*/}
 	window.onload = function() {
 		console.log( "Bienvenido a la tienda Petals&Fruits. ¡Estamos felices de que estés aquí!" );
 
@@ -133,13 +155,13 @@ const mostPopularProducts = await getCollection( 'mostPopularProducts' )
 		} );
 	}
 
-	// Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
-	function handleMouseOver( container, productImage ) {
+	{/*Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto*/}
+	function handleMouseOver( container: HTMLElement, productImage: HTMLElement ) {
 		container.style.border = "3px solid lightgreen" // Cambio de color de borde
 		productImage.style.border = "2px solid lightgreen";
 	}
 
-	function handleMouseOut( container, productImage ) {
+	function handleMouseOut( container: HTMLElement, productImage: HTMLElement ) {
 		container.style.border = ""; // Eliminar el borde cuando el mouse se va
 		productImage.style.border = "";
 	}

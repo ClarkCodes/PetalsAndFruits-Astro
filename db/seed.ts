@@ -1,5 +1,4 @@
 import { db, ProductServiceType, ProductServiceCategory, ProductService, SaleHistory } from 'astro:db';
-// import { ProductServiceType, ProductServiceCategory, ProductService, SaleHistory } from './config.ts';
 
 export default async function seed() {
 	await db.insert( ProductServiceType ).values([

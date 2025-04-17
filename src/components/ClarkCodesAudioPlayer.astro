@@ -1,6 +1,8 @@
 ---
-import './ClarkCodesMusicPlayer/ClarkCodesAudioPlayer/ClarkCodesAudioPlayer.js';
 const { src, songName, artistAlbum, coverImg } = Astro.props 
 ---
 
 <ck-audio-player src={src} type="audio/mpeg" autoplay="true" song-name={songName} artist-album={artistAlbum} cover-img={coverImg} ></ck-audio-player>
+<script>
+    import './ClarkCodesMusicPlayer/ClarkCodesAudioPlayer/ClarkCodesAudioPlayer.js';
+</script>

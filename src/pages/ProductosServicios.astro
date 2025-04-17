@@ -1,6 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/ProductosServiciosStyles.css'
+import { db, eq, ProductService } from 'astro:db';
+import Producto from '../components/Producto.astro';
+import { getAllProducts } from './products/utils';
+
+const products = await getAllProducts();
+console.log( products );
 ---
 
 <Layout title="Productos y Servicios" description="Página de Productos y Servicios, revisa lo que te ofrecemos y escoge lo que quieras">
@@ -392,12 +398,12 @@ import '../styles/ProductosServiciosStyles.css'
 	}
 
 	// Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
-	function handleMouseOver( container, productImage ) {
+	function handleMouseOver( container: HTMLElement, productImage:HTMLElement ) {
 		container.style.border = "3px solid lightgreen" // Cambio de color de borde
 		productImage.style.border = "2px solid lightgreen";
 	}
 
-	function handleMouseOut( container, productImage ) {
+	function handleMouseOut( container: HTMLElement, productImage:HTMLElement ) {
 		container.style.border = ""; // Eliminar el borde cuando el mouse se va
 		productImage.style.border = "";
 	}
