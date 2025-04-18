@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/QuienesSomosStyles.css'
 ---
-
 <Layout title="Quienes Somos" description="Página de Quienes Somos, conoce nuestro emprendimiento">
+	<style>
+		@import '../styles/QuienesSomosStyles.css';
+	</style>
 	<div id="pageMainImageDivId">
 		<h1 id="QuienesSomosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )">
 			Quienes Somos...

@@ -1,15 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/ProductosServiciosStyles.css'
-import { db, eq, ProductService } from 'astro:db';
+//import { db, eq, ProductService } from 'astro:db';
 import Producto from '../components/Producto.astro';
 import { getAllProducts } from './products/utils';
-
 const products = await getAllProducts();
 console.log( products );
+const sanValentinProducts = products.filter( p => p.id_pscategory === 2 );
+const parejasProducts = products.filter( p => p.id_pscategory === 3 );
+const diaMyPProducts = products.filter( p => p.id_pscategory === 4 );
+const cumpleaniosProducts = products.filter( p => p.id_pscategory === 5 );
+const gourmetProducts = products.filter( p => p.id_pscategory === 6 );
+const chocoFresasProducts = products.filter( p => p.id_pscategory === 7 );
+const elegantesProducts = products.filter( p => p.id_pscategory === 8 );
+const surtidosProducts = products.filter( p => p.id_pscategory === 9 );
+const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 ---
-
 <Layout title="Productos y Servicios" description="Página de Productos y Servicios, revisa lo que te ofrecemos y escoge lo que quieras">
+	<style>
+		@import '../styles/ProductosServiciosStyles.css';
+	</style>
 	<div id="pageMainImageDivId">
 		<h1>Del campo...<br>A tus manos.</h1>
 	</div>
@@ -39,7 +48,13 @@ console.log( products );
 		<section class="Productos">
 			<h2 id="sanValentinTitleId">San Valentín</h2>
 			<div class="GrupoProductos">
-				<div class="producto" >
+				{ 
+					sanValentinProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+
+				<!-- <div class="producto" >
 					<img src="../common/images/CorazonGirasoles.webp" alt="Corazón de Girasoles">
 					<h3>Corazón de Girasoles</h3>
 					<p>Refinadas Rosas Rojas adornadas con Girasoles en el borde, y con chocolates Ferrero Rocher en el centro.</p>
@@ -58,11 +73,16 @@ console.log( products );
 					<img src="../common/images/valentine-BouquetRegaloRosasClaras_1280.jpg" alt="Caja Bouquet de Rosas Claras">
 					<h3>Caja Bouquet de Rosas Diversas</h3>
 					<p>Colorido arreglo de Rosas variadas de diferente tipo en una hermosa caja cilíndrica.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="parejasTitleId">Parejas</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					parejasProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Bouquet-Lilas_1280.jpg" alt="Bouquet de Lilas">
 					<h3>Bouquet de Lilas</h3>
 					<p>Ramo de Lilas elegantemente armado.</p>
@@ -86,11 +106,16 @@ console.log( products );
 					<img src="../common/images/wedding-BouquetVinculo_1280.jpg" alt="Bouquet Vínculo">
 					<h3>Bouquet Vínculo</h3>
 					<p>Fino ramo armado con rosas blancas puras y rosadas, con un aspecto excelso.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="diaPadreMadreTitleId">Día de la Madre y del Padre</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					diaMyPProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Clasico.webp" alt="Canasta Clásica">
 					<h3>Canasta Clásica</h3>
 					<p>Una canasta con flores variadas, muy usadas en épocas de ayer y hoy.</p>
@@ -114,11 +139,16 @@ console.log( products );
 					<img src="../common/images/vase-Imperial_1280.jpg" alt="Florero Imperial">
 					<h3>Florero Imperial</h3>
 					<p>Con flores variadas, un balance entre variedad y elegancia suprema, viene con una vasija rectangular de piedra labrada, una pieza artesanal y artística de estilo renacentista que le da el toque supremo.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="cumpleaniosTitleId">Cumpleaños</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					cumpleaniosProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Bouquet-RosasBlancasAmarillas_1280.jpg" alt="Rosas Blancas y Amarillas">
 					<h3>Caja Presente de Rosas</h3>
 					<p>Rosas Blancas y Amarillas en una caja de obsequio con un lacito, elegante y detallista.</p>
@@ -137,7 +167,7 @@ console.log( products );
 					<img src="../common/images/Canasta-GirasolesRosasClaras_1280.jpg" alt="Canasta de Girasoles y Rosas Claras">
 					<h3>Canasta Sol Rosa</h3>
 					<p>Canasta de Girasoles con Rosas, acojedor y de estilo hogareño.</p>
-				</div>
+				</div> -->
 			</div>
 		</section>
 		<section class="Remember">
@@ -153,7 +183,12 @@ console.log( products );
 		<section class="Productos">
 			<h2 id="gourmetTitleId">Gourmet</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					gourmetProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Gourmet_BerrySandia_1280.jpg" alt="Berry Sandia">
 					<h3>Berry Sandia</h3>
 					<p>Frutas tropicales frescas: sandia, arándanos, moras y frambuesas.</p>
@@ -182,11 +217,16 @@ console.log( products );
 					<img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp" alt="Rebanadas Frutales">
 					<h3>Rebanadas Frutales</h3>
 					<p>Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="chocoFresasTitleId">ChocoFresas</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					chocoFresasProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Frutales_ChocoFresas_BaniadoParcial-2048x2048.jpg" alt="Bañado Parcial">
 					<h3>Bañado Parcial</h3>
 					<p>Vaso de Fresas naturales con Fresas bañadas en chocolate derretido, adornadas con chocolate blanco y aderezadas con maní.</p>
@@ -210,11 +250,16 @@ console.log( products );
 					<img src="../common/images/Frutales_ChocoFresas_Fresas de Pascua-2048x2048.jpg" alt="Fresas de Pascua">
 					<h3>Glaciares de Pascua</h3>
 					<p>Son Fresas Glaciares Magnum con motivos de huevos de pascua, así como aderezos adicionales que le dan un valor agregado exquisito.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="elegantesTitleId">Elegantes</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					elegantesProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Elegante_Plenitud.jpg" alt="Plenitud">
 					<h3>Plenitud</h3>
 					<p>Fresas, uvas y piñas, con lindas formas y en un arreglo con una alta elegancia.</p>
@@ -228,11 +273,16 @@ console.log( products );
 					<img src="../common/images/Frutal_Elegante_PiniaHawaiana.jpg" alt="Piña Hawaiana">
 					<h3>Piña Hawaiana</h3>
 					<p>Alta dotación de Piña Hawaiana con fresas, delicioso para cualquier amante de la piña.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="surtidosTitleId">Surtidos</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					surtidosProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Surtido_Personal.jpg" alt="Personal">
 					<h3>Personal</h3>
 					<p>Dotación personal de frutas variadas.</p>
@@ -246,11 +296,16 @@ console.log( products );
 					<img src="../common/images/Frutal_Surtido_CanastaPoderosa_1280.png" alt="Canasta Poderosa">
 					<h3>Canasta Poderosa</h3>
 					<p>Una Gran Canasta con muchas frutas variadas, de pequeño y mediano tamaño.</p>
-				</div>
+				</div> -->
 			</div>
 			<h2 id="infantilesTitleId">Infantiles</h2>
 			<div class="GrupoProductos">
-				<div class="producto">
+				{ 
+					infantilesProducts.forEach( 
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+					)
+				}
+				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Infantil_Fiestero.webp" alt="Fiestero">
 					<h3>Fiestero</h3>
 					<p>Vaso con Fresas, Moras, Uvas y Galletas, adecuado para fiestas infantiles.</p>
@@ -269,7 +324,7 @@ console.log( products );
 					<img src="../common/images/Frutal_Infantil_JarrosFrutales-2048x2048.jpg" alt="Jarritos Frutales">
 					<h3>Jarritos Frutales</h3>
 					<p>Jarros personales con frutas variadas, con aderezos opcionales, adecuado para sorpresas para niños en fiestas infantiles.</p>
-				</div>
+				</div> -->
 			</div>
 		</section>
 		<section id="videoDIYRecomendacionArreglo">

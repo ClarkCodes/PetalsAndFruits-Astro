@@ -1,16 +1,14 @@
 ---
-import ClarkCodesAudioPlayer from '../components/ClarkCodesAudioPlayer.astro';
 import Layout from '../layouts/Layout.astro';
-import '../styles/global.css'
-import '../styles/productosStyles.css'
-import '../styles/indexStyles.css'
+import ClarkCodesAudioPlayer from '../components/ClarkCodesAudioPlayer.astro';
+import Producto from '../components/Producto.astro';
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
 //import { getCollection } from 'astro:content';
 //const mostPopularProducts = await getCollection( 'mostPopularProducts' )
-import { db, max, asc, eq, SaleHistory, ProductService } from 'astro:db';
-import Producto from '../components/Producto.astro';
+import { db, max, asc, eq, SaleHistory } from 'astro:db';
 import { getProduct } from './products/utils';
 
 const mostPopularIds = await db.select( { value: max( SaleHistory.quant ) } ).from( SaleHistory ).orderBy( asc( SaleHistory.quant ) ).limit( 4 );
@@ -20,7 +18,6 @@ mostPopularIds.forEach( id_row => {
 	let id: number = 0;
 	if( id_row.value != null ){
 		id = Number( id_row.value );
-		//let retrievedProduct = getProduct( id );
 		mostPopularProducts.push( getProduct( id ) );
 	}
 } );
@@ -28,6 +25,11 @@ mostPopularIds.forEach( id_row => {
 ---
 
 <Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
+	<style>
+		@import '../styles/global.css';
+		@import '../styles/productosStyles.css';
+		@import '../styles/indexStyles.css';
+	</style>
 	<div id="landingWelcomeDivId">
 		<h1>Dílo con Flores...<br> Exprésalo con Frutas</h1>
 	</div>
@@ -44,7 +46,7 @@ mostPopularIds.forEach( id_row => {
 				<!-- TODO: Add products from the DB and not this way -->
 				{ 
 					mostPopularProducts.map( 
-						p => <Producto id={p.ps_id} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
+						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					) 
 				}
 
