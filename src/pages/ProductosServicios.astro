@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-//import { db, eq, ProductService } from 'astro:db';
-import Producto from '../components/Producto.astro';
+import '/styles/ProductosServiciosStyles.css';
+import Producto from '@components/Producto.astro';
 import { getAllProducts } from './products/utils';
 const products = await getAllProducts();
 console.log( products );
@@ -16,9 +16,6 @@ const surtidosProducts = products.filter( p => p.id_pscategory === 9 );
 const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 ---
 <Layout title="Productos y Servicios" description="Página de Productos y Servicios, revisa lo que te ofrecemos y escoge lo que quieras">
-	<style>
-		@import '../styles/ProductosServiciosStyles.css';
-	</style>
 	<div id="pageMainImageDivId">
 		<h1>Del campo...<br>A tus manos.</h1>
 	</div>

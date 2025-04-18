@@ -1,4 +1,4 @@
-@import url( "BaseCommonStyles.css" );
+@import url( "/public/styles/BaseCommonStyles.css" );
 
 /* Estilos Principales */
 
@@ -7,7 +7,7 @@
     text-align: center;    
     display: flex;
     justify-content: center;
-    background-image: url( "../images/meeting-1453895_1920.png" );
+    background-image: url( "/src/assets/images/meeting-1453895_1920.png" );
     height: 1000px;
 
     h1 {
@@ -77,7 +77,7 @@ h2 {
     margin-left: -4.4%;
     margin-right: -4.3%;
     display: flex;
-    background-image: url( "../images/team-4864035_1920.jpg" );
+    background-image: url( "/src/assets/images/team-4864035_1920.jpg" );
     background-repeat: no-repeat;
     background-size: cover;
     height: 1000px;

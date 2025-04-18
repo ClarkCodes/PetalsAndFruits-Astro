@@ -1,14 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '/styles/ContactenosStyles.css';
+import errorIcon from '@assets/icons/error-icon.png';
 ---
-
 <Layout title="Contáctenos" description="Página de Contactenos, ponte en contacto con nostros para solicitar productos, servicios o información">
-	<style>
-		@import '../styles/ContactenosStyles.css';
-	</style>
-	<div id="pageMainImageDivId" style="height: 100px;">
-            
-	</div>
+	<div id="pageMainImageDivId" style="height: 100px;"></div>
 	<!-- Sección Principal -->
 	<main>
 		<div class="ContentClass">
@@ -24,28 +20,28 @@ import Layout from '../layouts/Layout.astro';
 					<form name="contactenosForm" method="post">
 						<label for="txtNamesId" >Nombres *</label><br>
 						<input type="text" id="txtNamesId" name="names" placeholder="Escriba sus dos nombres..." ><br>
-						<span class="ErrorTooltipClass" id="namesTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que llene el campo con sus Nombres</span>
+						<span class="ErrorTooltipClass" id="namesTooltipId"><img src={errorIcon.src} />Se requiere que llene el campo con sus Nombres</span>
 
 						<label for="txtLastNamesId" >Apellidos *</label><br>
 						<input type="text" id="txtLastNamesId" name="lastNames" placeholder="Escriba sus dos apellidos..." ><br>
-						<span class="ErrorTooltipClass" id="lastNamesTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que llene el campo con sus Apellidos</span>
+						<span class="ErrorTooltipClass" id="lastNamesTooltipId"><img src={errorIcon.src} />Se requiere que llene el campo con sus Apellidos</span>
 
 						<div class="PhoneAndMailClass">
 							<div id="phoneDivId">
 								<label for="txtPhoneId" id="lblPhoneId">Teléfono *</label><br>
 								<input type="tel" pattern="[0-9]*" id="txtPhoneId" name="phone" placeholder="Escriba su número de teléfono..." >
-								<span class="ErrorTooltipClass" id="phoneTooltipId"><img src="../common/icons/error-icon.png"/><span id="phoneTooltipMsgId"></span></span>
+								<span class="ErrorTooltipClass" id="phoneTooltipId"><img src={errorIcon.src} /><span id="phoneTooltipMsgId"></span></span>
 							</div>
 							<div id="mailDivId">
 								<label for="txtEmailId" >Correo Electrónico *</label><br>
 								<input type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="txtEmailId" name="email" placeholder="Escriba su correo electrónico..." ><br>
-								<span class="ErrorTooltipClass" id="emailTooltipId"><img src="../common/icons/error-icon.png"/><span id="emailTooltipMsgId"></span></span>
+								<span class="ErrorTooltipClass" id="emailTooltipId"><img src={errorIcon.src} /><span id="emailTooltipMsgId"></span></span>
 							</div>
 						</div>
 
 						<label for="txtMotivoId" >Motivo *</label><br>
 						<input type="text" id="txtMotivoId" name="consultingSubject" placeholder="Describa brevemente el motivo por el cual nos contacta..." ><br>
-						<span class="ErrorTooltipClass" id="motivoTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que llene el campo con el motivo del contacto</span>
+						<span class="ErrorTooltipClass" id="motivoTooltipId"><img src={errorIcon.src} />Se requiere que llene el campo con el motivo del contacto</span>
 					
 						<label for="cmbCitiesId">Ciudad *</label><br>
 						<select id="cmbCitiesId" name="city">
@@ -59,7 +55,7 @@ import Layout from '../layouts/Layout.astro';
 							<input type="checkbox" id="chkAcceptanceId" name="acceptance" required >    
 							Al aceptar, estás de acuerdo con nuestra Politica de Protección de Datos Personales.
 						</label><br>
-						<span class="ErrorTooltipClass" id="acceptanceTooltipId"><img src="../assets/icons/error-icon.png"/>Se requiere que acepte la Politica de Protección de Datos para continuar</span>
+						<span class="ErrorTooltipClass" id="acceptanceTooltipId"><img src={errorIcon.src} />Se requiere que acepte la Politica de Protección de Datos para continuar</span>
 
 						<input type="submit" value="Enviar" id="submitButtonId" >
 					</form>

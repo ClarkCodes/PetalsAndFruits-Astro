@@ -1,5 +1,5 @@
-@import url( "BaseCommonStyles.css" );
-@import url( "../theme/themeStyles.css" );
+@import url( "/public/styles/BaseCommonStyles.css" );
+/*@import url( "../theme/themeStyles.css" );*/
 
 .ContentClass {
     display: flex;
@@ -109,7 +109,7 @@ form {
     }
 
     input[type="submit"] {
-        background: url( "../icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" ) no-repeat;
+        background: url( "/public/icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" ) no-repeat;
         background-position-x: 20.7vw;
         background-position-y: center;
         background-size: 30px;

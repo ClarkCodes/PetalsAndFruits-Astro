@@ -1,23 +1,30 @@
 ---
-import '../styles/FooterStyles.css'
+import '/styles/FooterStyles.css'
+import petalsAndFruitsLogo from '@assets/images/Petals&Fruits_Logo_Only_Text_Light_Orange_Bold.webp';
+import youTubeLogo from '@assets/icons/youtube_social_icon_red.png';
+import xTwitterLogo from '@assets/icons/X-logo-black.png';
+import csLogo from '@assets/images/CARRERA DE SOFTWARE_LogoTotal_AJUSTADO AL CONTENIDO_400x70.webp';
+import instagramIcon from '/icons/Instagram_Glyph_Gradient.svg';
+import githubIcon from '/icons/github-mark.svg';
+import ugLogo from '@assets/images/UG_LOGO_2023_SOLO_105x60.png';
 ---
 <footer class="FooterClass">
     <div id="mainDivLeftId">
         <div id="footerLogoDivId">
             <a href="/index/" target="_parent" id="footerLogoLinkId">
-                <img src="../assets/images/Petals&Fruits_Logo_Only_Text_Light_Orange_Bold.webp" width="350px" alt="Logo Petals&Fruits"/>
+                <img src={petalsAndFruitsLogo.src} width="350px" alt="Logo Petals&Fruits"/>
             </a>
             <nav id="socialLinksNavId">
                 <ul>
-                    <li><a href="https://www.instagram.com/clarkcodes/" target="_blank"><img src="/public/icons/Instagram_Glyph_Gradient.svg" height="23" alt="ClarkCodes on Instagram"/></a></li>
-                    <li><a href="https://github.com/ClarkCodes" target="_blank"><img src="/public/icons/github-mark.svg" height="23" alt="ClarkCodes on GitHub"/></a></li>
-                    <li><a href="https://www.youtube.com/@ClarkCodes?sub_confirmation=1" target="_blank"><img src="../assets/icons/youtube_social_icon_red.png" height="23" alt="ClarkCodes on YouTube"/></a></li>
-                    <li><a href="https://x.com/clarkcodes?ref_src=twsrc%5Etfw" target="_blank"><img src="../assets/icons/X-logo-black.png" height="23" alt="ClarkCodes on X (Twitter)"/></a></li>
+                    <li><a href="https://www.instagram.com/clarkcodes/" target="_blank"><img src={instagramIcon.src} height="23" alt="ClarkCodes on Instagram"/></a></li>
+                    <li><a href="https://github.com/ClarkCodes" target="_blank"><img src={githubIcon.src} height="23" alt="ClarkCodes on GitHub"/></a></li>
+                    <li><a href="https://www.youtube.com/@ClarkCodes?sub_confirmation=1" target="_blank"><img src={youTubeLogo.src} height="23" alt="ClarkCodes on YouTube"/></a></li>
+                    <li><a href="https://x.com/clarkcodes?ref_src=twsrc%5Etfw" target="_blank"><img src={xTwitterLogo.src} height="23" alt="ClarkCodes on X (Twitter)"/></a></li>
                 </ul>
             </nav>
         </div>
         <div id="csLogoDivId">
-            <img src="../assets/images/CARRERA DE SOFTWARE_LogoTotal_AJUSTADO AL CONTENIDO_400x70.webp" id="CSLogoImgId" alt="Carrera de Software Logo"/>
+            <img src={csLogo.src} id="CSLogoImgId" alt="Carrera de Software Logo"/>
         </div>
     </div>
     <div id="mainDivRightId">
@@ -26,13 +33,13 @@ import '../styles/FooterStyles.css'
                 <h3>Contáctenos</h3>
                 <div id="contactenosAddressDivId">
                     <div>
-                        <img src="/public/icons/phone.svg" id="addressIconId" alt="Phone Icon"/><address>+593 99 1234 789</address>
+                        <img src="/icons/phone.svg" id="addressIconId" alt="Phone Icon"/><address>+593 99 1234 789</address>
                     </div>
                     <div>
-                        <img src="/public/icons/mail.svg" id="addressIconId" alt="Mail Icon"/><a class="TextLinksClass" href="mailto:info@petals&fruits.com"><address>info@petals&fruits.com</address></a>
+                        <img src="/icons/mail.svg" id="addressIconId" alt="Mail Icon"/><a class="TextLinksClass" href="mailto:info@petals&fruits.com"><address>info@petals&fruits.com</address></a>
                     </div>
                     <div>
-                        <img src="/public/icons/map-pin.svg" id="addressIconId" alt="Map Pin Icon"/><address>Victor Manuel Rendón y Córdova</address>
+                        <img src="/icons/map-pin.svg" id="addressIconId" alt="Map Pin Icon"/><address>Victor Manuel Rendón y Córdova</address>
                     </div>
                 </div>
             </div>
@@ -46,7 +53,7 @@ import '../styles/FooterStyles.css'
                 <div id="graphicalResourcesDivId">
                     <h3>Recursos Gráficos</h3>
                     <div id="pixabayLinkDivId">
-                        <a href="https://pixabay.com/" target="_blank"><img src="/public/icons/pixabay_logotype_dark.svg" id="FreepikLogoId" height="40" alt="Freepik Logo"/></a>
+                        <a href="https://pixabay.com/" target="_blank"><img src="/icons/pixabay_logotype_dark.svg" id="FreepikLogoId" height="40" alt="Freepik Logo"/></a>
                     </div>                
                 </div>
             </div>
@@ -55,14 +62,14 @@ import '../styles/FooterStyles.css'
             <div id="copyrightCenterDivId">
                 <div id="copyrightCenterMainDivId">
                     <div id="UGLogoDivId">
-                        <img src="../assets/images/UG_LOGO_2023_SOLO_105x60.png" id="UGLogoImgId" alt="Universidad de Guayaquil Imagotipo Logo"/>
+                        <img src={ugLogo.src} id="UGLogoImgId" alt="Universidad de Guayaquil Imagotipo Logo"/>
                     </div>
                     <div id="UniFaTextDivId">
                         <strong>Facultad de Ciencias Matemáticas y Físicas</strong>
                         <strong>Universidad de Guayaquil</strong>
                     </div>
                     <div id="FacultadLogoDivId">
-                        <img src="../assets/images/LOGO_FACULTAD_CIENCIAS_MATEMATICAS_Y_FISICAS_67x70.PNG" id="FCMFLogoImgId" alt="Facultad de Ciencias Matematicas y Fisicas Logo"/>
+                        <img src="/src/assets/images/LOGO_FACULTAD_CIENCIAS_MATEMATICAS_Y_FISICAS_67x70.PNG" id="FCMFLogoImgId" alt="Facultad de Ciencias Matematicas y Fisicas Logo"/>
                     </div>
                 </div>
                 <div id="copyrightLegendDivId">

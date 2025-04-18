@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '/styles/QuienesSomosStyles.css';
+import firstPlaceImg from '@assets/images/first-place-2048x2048.webp';
+import iso from '@assets/images/iso27001-2048x2048.webp';
+import frescoNatural from '@assets/images/100FrescoNatural-2048x2048.webp';
+import garantiaOrganico from '@assets/images/100Organico-2048x2048.webp';
 ---
 <Layout title="Quienes Somos" description="Página de Quienes Somos, conoce nuestro emprendimiento">
-	<style>
-		@import '../styles/QuienesSomosStyles.css';
-	</style>
 	<div id="pageMainImageDivId">
 		<h1 id="QuienesSomosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )">
 			Quienes Somos...
@@ -38,19 +40,19 @@ import Layout from '../layouts/Layout.astro';
 			<h2>Somos los mejores en nuestro ámbito</h2>
 			<div id="logrosContainerId">
 				<div class="Logro" onclick="mostrarMensajeLogro( 'Ganador del Primer Lugar a la Excelencia en Calidad' )">
-					<img id="firstPlaceIconImgId" src="../common/images/first-place-2048x2048.webp" alt="Ganador Primer Lugar Excelencia en Calidad">
+					<img id="firstPlaceIconImgId" src={firstPlaceImg.src} alt="Ganador Primer Lugar Excelencia en Calidad">
 					<h3>5 Veces Ganador del<br>Primer Lugar a la Excelencia en Calidad de Productos y Servicios</h3>
 				</div>
 				<div class="Logro" onclick="mostrarMensajeLogro( 'Acreditación ISO: Máxima Calidad en Procesos de Producción' )">
-					<img src="../common/images/iso27001-2048x2048.webp" alt="Acreditación ISO 27001">
+					<img src={iso.src} alt="Acreditación ISO 27001">
 					<h3>Acreditación ISO<br>Máxima Calidad en Procesos de Producción</h3>
 				</div>
 				<div class="Logro" onclick="mostrarMensajeLogro( 'Máxima frescura garantizada en nuestros productos' )">
-					<img src="../common/images/100FrescoNatural-2048x2048.webp" alt="100% Fresco">
+					<img src={frescoNatural.src} alt="100% Fresco">
 					<h3>Máxima Frescura en nuestros Productos</h3>
 				</div>
 				<div class="Logro" onclick="mostrarMensajeLogro( 'Garantía de Productos 100% Orgánicos' )">
-					<img src="../common/images/100Organico-2048x2048.webp" alt="100% Orgánico">
+					<img src={garantiaOrganico.src} alt="100% Orgánico">
 					<h3>Productos cultivados y cosechados sin fertilizantes ni químicos</h3>
 				</div>
 			</div>
@@ -83,22 +85,22 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
 	// Cambia el color del título principal al pasar el mouse
-	function cambiarColorTitulo( elemento ) {
+	function cambiarColorTitulo( elemento: HTMLElement ) {
 		elemento.style.color = "lightyellow";
 		elemento.style.border = "2px solid lightgreen";
 	}
-	function restaurarColorTitulo( elemento ) {
+	function restaurarColorTitulo( elemento: HTMLElement ) {
 		elemento.style.color = ""; // Restaura el color original
 		elemento.style.border = "";
 	}
 
 	// Muestra un mensaje emergente al hacer clic en un logro
-	function mostrarMensajeLogro( mensaje ) {
+	function mostrarMensajeLogro( mensaje: string ) {
 		alert( mensaje );
 	}
 
 	// Cambia el contenido de un párrafo al hacer doble clic
-	function cambiarContenidoParrafo( elemento ) {
+	function cambiarContenidoParrafo( elemento: HTMLElement ) {
 		elemento.innerText = "¡Gracias por visitarnos! Estamos felices de compartir nuestra historia contigo.";
 	}
 </script>

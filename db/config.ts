@@ -1,7 +1,6 @@
-import type { TableConfig } from '@astrojs/db';
 import { defineDb, defineTable, column, NOW } from 'astro:db';
 
-const ProductServiceType: TableConfig = defineTable( {
+const ProductServiceType = defineTable( {
   columns: {
     id_pstype: column.number( { primaryKey: true } ),
     pstype_name: column.text( { unique: true } ),
@@ -9,7 +8,7 @@ const ProductServiceType: TableConfig = defineTable( {
   },
 } )
 
-const ProductServiceCategory: TableConfig = defineTable( {
+const ProductServiceCategory = defineTable( {
   columns: {
     id_pscategory: column.number( { primaryKey: true } ),
     pscategory_name: column.text( { unique: true } ),
@@ -17,7 +16,7 @@ const ProductServiceCategory: TableConfig = defineTable( {
   },
 } )
 
-const ProductService: TableConfig = defineTable( {
+const ProductService = defineTable( {
   columns: {
     id_ps: column.number( { primaryKey: true } ),
     ps_name: column.text( { unique: true } ),
@@ -37,7 +36,7 @@ const ProductService: TableConfig = defineTable( {
   ], */
 } )
 
-const SaleHistory: TableConfig = defineTable( {
+const SaleHistory = defineTable( {
   columns: {
     id_sale: column.number( { primaryKey: true } ),
     id_ps: column.number( { references: () => ProductService.columns.id_ps } ),

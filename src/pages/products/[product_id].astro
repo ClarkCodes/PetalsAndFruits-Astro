@@ -1,10 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import '/src/styles/global.css';
 import { ClientRouter } from "astro:transitions";
-import { getProduct } from './utils.ts';
+import { getProduct } from './utils';
 
 const { product_id } = Astro.params;
-const product = await getProduct( Number( product_id ) );
+const product = ( await getProduct( Number( product_id ) ) )[0];
 ---
 
 <Layout>

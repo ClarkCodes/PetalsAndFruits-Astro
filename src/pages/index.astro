@@ -1,7 +1,12 @@
 ---
+import '/styles/productosStyles.css';
+import '/styles/indexStyles.css';
 import Layout from '../layouts/Layout.astro';
-import ClarkCodesAudioPlayer from '../components/ClarkCodesAudioPlayer.astro';
-import Producto from '../components/Producto.astro';
+import ClarkCodesAudioPlayer from '@components/ClarkCodesAudioPlayer.astro';
+import Producto from '@components/Producto.astro';
+import loveThingCoverImg from '@assets/images/Satriani-BCN-2023-1.jpg';
+import alwaysWithCoverImg from '@assets/images/Satriani-2-1140x500.jpg';
+import fruitsHeart from '@assets/images/fruits-heart-2048x2048.webp';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -23,13 +28,7 @@ mostPopularIds.forEach( id_row => {
 } );
 
 ---
-
 <Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
-	<style>
-		@import '../styles/global.css';
-		@import '../styles/productosStyles.css';
-		@import '../styles/indexStyles.css';
-	</style>
 	<div id="landingWelcomeDivId">
 		<h1>Dílo con Flores...<br> Exprésalo con Frutas</h1>
 	</div>
@@ -80,21 +79,21 @@ mostPopularIds.forEach( id_row => {
 		</section>
 		<div id="landingPicture2DivId">
 			<h1>Llena sus vidas de flores y amor<br>mientras los puedes abrazar.</h1>
-			<button onclick="window.location.href='ProductosServicios.html'">Elige el Regalo Perfecto</button>
+			<button onclick="window.location.href='/ProductosServicios/'">Elige el Regalo Perfecto</button>
 		</div>
 		<section class="FigureClass">
 			<figure> 
-				<img src="../assets/images/fruits-heart-2048x2048.webp" alt="Corazón de Frutas" width="40%">
+				<img src={fruitsHeart.src} alt="Corazón de Frutas" width="40%">
 				<figcaption>Figura: Corazón hecho de Frutas.</figcaption>
 				<h2 class="IntermidiateTitle">Llega a sus corazónes,<br>contenta con Frutas sus almas.</h2>
 			</figure> 
 		</section>
 		<section id="audioPlayerSectionId">
-			<ClarkCodesAudioPlayer src="/public/audios/Love Thing.mp3" songName="Love Thing" artistAlbum="Joe Satriani - Crystal Planet" coverImg="../assets/images/Satriani-BCN-2023-1.jpg" />
+			<ClarkCodesAudioPlayer src='/audios/Love Thing.mp3' songName="Love Thing" artistAlbum="Joe Satriani - Crystal Planet" coverImg={loveThingCoverImg.src} />
 		</section>
 		<h2 class="IntermidiateTitle">Así como nuestras Flores y Frutas...<br>¡Disfruta de una buena Música!</h2>
 		<section id="audioPlayerSectionId">
-			<ClarkCodesAudioPlayer src="/public/audios/Always With Me, Always With You.mp3" songName="Always with me, always with you" artistAlbum="Joe Satriani - Surfing with the alien" coverImg="../assets/images/Satriani-2-1140x500.jpg" />
+			<ClarkCodesAudioPlayer src="/audios/Always With Me, Always With You.mp3" songName="Always with me, always with you" artistAlbum="Joe Satriani - Surfing with the alien" coverImg={alwaysWithCoverImg.src} />
 		</section>
 		<div class="Spacer"></div>
 		<section class="RazonesEleccion">

@@ -1,11 +1,11 @@
-@import url( "BaseCommonStyles.css" );
+@import url( "/public/styles/BaseCommonStyles.css" );
 
 #pageMainImageDivId {
     position: relative;
     text-align: center;    
     display: flex;
     justify-content: center;
-    background-image: url( "../images/autumn-5519836_1920.png" );
+    background-image: url( "/src/assets/images/autumn-5519836_1920.png" );
     height: 1000px;
 
     h1 {

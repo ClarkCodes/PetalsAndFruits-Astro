@@ -1,5 +1,5 @@
 /* Imports */
-@import url( "BaseCommonStyles.css" );
+@import url( "/public/styles/BaseCommonStyles.css" );
 
 /* Variables/Constants */
 :root 
@@ -34,7 +34,7 @@ footer {
     }
 
     &::before {
-        background: url( "../images/apple_1920.png" ) no-repeat center center;
+        background: url( "/src/assets/images/apple_1920.png" ) no-repeat center center;
         background-size: cover;
         z-index: -2;
     }

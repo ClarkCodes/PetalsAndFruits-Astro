@@ -1,4 +1,4 @@
-@import url( "BaseCommonStyles.css" );
+@import url( "/public/styles/BaseCommonStyles.css" );
 
 /* Estilos Principales */
 
@@ -6,7 +6,7 @@
     position: relative;
     z-index: 1;
     display: flex;
-    background-image: url( "../assets/images/woman-flowers-fruits_1920.jpg" );
+    background-image: url( "/src/assets/images/woman-flowers-fruits_1920.jpg" );
     height: 1000px;
 
     h1 {
@@ -80,7 +80,7 @@
     margin-left: -4.4%;
     margin-right: -4.3%;
     display: flex;
-    background-image: url( "../assets/images/heart-tree-field-4k-cm-1360x768.jpg" );
+    background-image: url( "/src/assets/images/heart-tree-field-4k-cm-1360x768.jpg" );
     background-repeat: no-repeat;
     background-size: cover;
     background-clip: border-box;

@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '/styles/NuestroEquipoStyles.css';
+import josephKentImg from '@assets/images/Clark.webp';
+import petter from '@assets/images/Petter.webp'; 
+import andrea from '@assets/images/Andrea.webp';
+import infografia from '@assets/images/infografia_productividad.webp';
 ---
-
 <Layout title="Nuestro Equipo" description="Página de Nuestro Equipo, conoce quienes trabajamos para darte lo mejor en la industria">
-	<style>
-		@import '../styles/NuestroEquipoStyles.css';
-	</style>
 	<div id="pageMainImageDivId">
 		<h1>Nuestro Equipo<br>de Colaboradores</h1>
 	</div>
@@ -15,17 +16,17 @@ import Layout from '../layouts/Layout.astro';
 			<h2>Integrantes</h2>
 			<div id="integrantesDivId">
 				<div class="Miembro">
-					<img src="../assets/images/Clark.webp" alt="Joseph Kent">
+					<img src={josephKentImg.src} alt="Joseph Kent">
 					<h3>Joseph Kent</h3>
 					<p>Especialista en arreglos frutales y en el diseño innovador de composiciones frescas y naturales.</p>
 				</div>
 				<div class="Miembro">
-					<img src="../assets/images/Petter.webp" alt="Petter Acosta Espinoza">
+					<img src={petter.src} alt="Petter Acosta Espinoza">
 					<h3>Petter Acosta Espinoza</h3>
 					<p>Fundador y líder del equipo, experto en la creación de arreglos florales personalizados.</p>
 				</div>
 				<div class="Miembro">
-					<img src="../assets/images/Andrea.webp" alt="Andrea Salinas Martinez">
+					<img src={andrea.src} alt="Andrea Salinas Martinez">
 					<h3>Andrea Salinas Martínez</h3>
 					<p>Coordinadora de eventos y encargada de la atención al cliente, asegurando que cada cliente quede satisfecho.</p>
 				</div>
@@ -37,7 +38,7 @@ import Layout from '../layouts/Layout.astro';
 		<section id="infografia">
 			<h2>Nos enfocamos en la Productividad de nuestros Colaboradores</h2>
 			<figure> 
-				<img src="../assets/images/infografia_productividad.webp" alt="Corazón de Frutas" >
+				<img src={infografia.src} alt="Infografia de la Productividad" >
 				<figcaption>Infografía: Productividad Real en el Trabajo.</figcaption>
 			</figure> 
 		</section>
