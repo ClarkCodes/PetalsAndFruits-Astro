@@ -1,6 +1,6 @@
 ---
+import '../styles/QuienesSomosStyles.css';
 import Layout from '../layouts/Layout.astro';
-import '/styles/QuienesSomosStyles.css';
 import firstPlaceImg from '@assets/images/first-place-2048x2048.webp';
 import iso from '@assets/images/iso27001-2048x2048.webp';
 import frescoNatural from '@assets/images/100FrescoNatural-2048x2048.webp';
@@ -8,10 +8,10 @@ import garantiaOrganico from '@assets/images/100Organico-2048x2048.webp';
 ---
 <Layout title="Quienes Somos" description="Página de Quienes Somos, conoce nuestro emprendimiento">
 	<div id="pageMainImageDivId">
-		<h1 id="QuienesSomosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )">
+		<h1 id="QuienesSomosId">
 			Quienes Somos...
 		</h1>
-		<h1 id="ConocenosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )"><br>¡Conócenos!</h1>
+		<h1 id="ConocenosId"><br>¡Conócenos!</h1>
 	</div>
 	<!-- Sección Principal -->
 	<main>
@@ -19,7 +19,7 @@ import garantiaOrganico from '@assets/images/100Organico-2048x2048.webp';
 			<div class="BiSectionContentDiv">
 				<di class="BiSectionTextDiv">
 					<h2>Somos la Tienda #1 de Arreglos<br>Florales y Frutales en la región</h2>
-					<p ondblclick="cambiarContenidoParrafo( this )">
+					<p>
 						Del campo a tus manos, traemos los productos que más te gustan para ti, flores de altísima calidad, 
 						cuidadas con una dedicación suprema, frutos cultivados por nosotros, orgánicos y sanos. 
 						<br><br>
@@ -39,19 +39,19 @@ import garantiaOrganico from '@assets/images/100Organico-2048x2048.webp';
 		<section id="logrosSectionId">
 			<h2>Somos los mejores en nuestro ámbito</h2>
 			<div id="logrosContainerId">
-				<div class="Logro" onclick="mostrarMensajeLogro( 'Ganador del Primer Lugar a la Excelencia en Calidad' )">
+				<div class="Logro" data-msj='Ganador del Primer Lugar a la Excelencia en Calidad'>
 					<img id="firstPlaceIconImgId" src={firstPlaceImg.src} alt="Ganador Primer Lugar Excelencia en Calidad">
 					<h3>5 Veces Ganador del<br>Primer Lugar a la Excelencia en Calidad de Productos y Servicios</h3>
 				</div>
-				<div class="Logro" onclick="mostrarMensajeLogro( 'Acreditación ISO: Máxima Calidad en Procesos de Producción' )">
+				<div class="Logro" data-msj='Acreditación ISO: Máxima Calidad en Procesos de Producción'>
 					<img src={iso.src} alt="Acreditación ISO 27001">
 					<h3>Acreditación ISO<br>Máxima Calidad en Procesos de Producción</h3>
 				</div>
-				<div class="Logro" onclick="mostrarMensajeLogro( 'Máxima frescura garantizada en nuestros productos' )">
+				<div class="Logro" data-msj='Máxima frescura garantizada en nuestros productos'>
 					<img src={frescoNatural.src} alt="100% Fresco">
 					<h3>Máxima Frescura en nuestros Productos</h3>
 				</div>
-				<div class="Logro" onclick="mostrarMensajeLogro( 'Garantía de Productos 100% Orgánicos' )">
+				<div class="Logro" data-msj='Garantía de Productos 100% Orgánicos'>
 					<img src={garantiaOrganico.src} alt="100% Orgánico">
 					<h3>Productos cultivados y cosechados sin fertilizantes ni químicos</h3>
 				</div>
@@ -62,7 +62,7 @@ import garantiaOrganico from '@assets/images/100Organico-2048x2048.webp';
 				<di id="biSectionImageDivId2"></di>
 				<di class="BiSectionTextDiv">
 					<h2>Desde nuestros inicios<br>Dedicados a Nuestros Clientes</h2>
-					<p ondblclick="cambiarContenidoParrafo( this )">
+					<p>
 						Empezamos como un emprendimiento familiar, un negocio pequeño pero con muchas ganas de trabajar y salir adelante, 
 						así fue que poco a poco y con mucho esfuerzo, se ha transformado en la empresa que es hoy en día.
 						<br><br>
@@ -84,23 +84,19 @@ import garantiaOrganico from '@assets/images/100Organico-2048x2048.webp';
 </Layout>
 
 <script>
-	// Cambia el color del título principal al pasar el mouse
-	function cambiarColorTitulo( elemento: HTMLElement ) {
-		elemento.style.color = "lightyellow";
-		elemento.style.border = "2px solid lightgreen";
-	}
-	function restaurarColorTitulo( elemento: HTMLElement ) {
-		elemento.style.color = ""; // Restaura el color original
-		elemento.style.border = "";
-	}
+	document.addEventListener('DOMContentLoaded', () => {
+		// Muestra el nombre del logro en un Alert
+    	document.querySelectorAll('.Logro').forEach( divEl => {
+			divEl?.addEventListener('click', () => {
+      			alert( divEl.getAttribute( 'data-msj' ) );
+    		});
+		} );
 
-	// Muestra un mensaje emergente al hacer clic en un logro
-	function mostrarMensajeLogro( mensaje: string ) {
-		alert( mensaje );
-	}
-
-	// Cambia el contenido de un párrafo al hacer doble clic
-	function cambiarContenidoParrafo( elemento: HTMLElement ) {
-		elemento.innerText = "¡Gracias por visitarnos! Estamos felices de compartir nuestra historia contigo.";
-	}
+		// Cambia el contenido de un párrafo al hacer doble clic
+		document.querySelectorAll('.BiSectionTextDiv p').forEach( pEl => {
+			pEl?.addEventListener('dblclick', () => {
+				pEl.innerHTML = "¡Gracias por visitarnos! Estamos felices de compartir nuestra historia contigo.";
+    		});
+		} );
+  	});
 </script>

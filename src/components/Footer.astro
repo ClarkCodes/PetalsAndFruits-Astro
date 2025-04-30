@@ -1,23 +1,22 @@
 ---
-import '/styles/FooterStyles.css'
 import petalsAndFruitsLogo from '@assets/images/Petals&Fruits_Logo_Only_Text_Light_Orange_Bold.webp';
 import youTubeLogo from '@assets/icons/youtube_social_icon_red.png';
 import xTwitterLogo from '@assets/icons/X-logo-black.png';
 import csLogo from '@assets/images/CARRERA DE SOFTWARE_LogoTotal_AJUSTADO AL CONTENIDO_400x70.webp';
-import instagramIcon from '/icons/Instagram_Glyph_Gradient.svg';
-import githubIcon from '/icons/github-mark.svg';
+//import instagramIcon from '/icons/Instagram_Glyph_Gradient.svg';
+//import githubIcon from '/icons/github-mark.svg';
 import ugLogo from '@assets/images/UG_LOGO_2023_SOLO_105x60.png';
 ---
 <footer class="FooterClass">
     <div id="mainDivLeftId">
         <div id="footerLogoDivId">
-            <a href="/index/" target="_parent" id="footerLogoLinkId">
+            <a href="/" target="_parent" id="footerLogoLinkId">
                 <img src={petalsAndFruitsLogo.src} width="350px" alt="Logo Petals&Fruits"/>
             </a>
             <nav id="socialLinksNavId">
                 <ul>
-                    <li><a href="https://www.instagram.com/clarkcodes/" target="_blank"><img src={instagramIcon.src} height="23" alt="ClarkCodes on Instagram"/></a></li>
-                    <li><a href="https://github.com/ClarkCodes" target="_blank"><img src={githubIcon.src} height="23" alt="ClarkCodes on GitHub"/></a></li>
+                    <li><a href="https://www.instagram.com/clarkcodes/" target="_blank"><img src="/icons/Instagram_Glyph_Gradient.svg" height="23" alt="ClarkCodes on Instagram"/></a></li>
+                    <li><a href="https://github.com/ClarkCodes" target="_blank"><img src="/icons/github-mark.svg" height="23" alt="ClarkCodes on GitHub"/></a></li>
                     <li><a href="https://www.youtube.com/@ClarkCodes?sub_confirmation=1" target="_blank"><img src={youTubeLogo.src} height="23" alt="ClarkCodes on YouTube"/></a></li>
                     <li><a href="https://x.com/clarkcodes?ref_src=twsrc%5Etfw" target="_blank"><img src={xTwitterLogo.src} height="23" alt="ClarkCodes on X (Twitter)"/></a></li>
                 </ul>
@@ -53,7 +52,7 @@ import ugLogo from '@assets/images/UG_LOGO_2023_SOLO_105x60.png';
                 <div id="graphicalResourcesDivId">
                     <h3>Recursos Gráficos</h3>
                     <div id="pixabayLinkDivId">
-                        <a href="https://pixabay.com/" target="_blank"><img src="/icons/pixabay_logotype_dark.svg" id="FreepikLogoId" height="40" alt="Freepik Logo"/></a>
+                        <a href="https://pixabay.com/" target="_blank"><img src="/icons/pixabay_logotype_dark.svg" id="PixabayLogoId" height="40" alt="Pixabay Logo"/></a>
                     </div>                
                 </div>
             </div>
@@ -79,3 +78,380 @@ import ugLogo from '@assets/images/UG_LOGO_2023_SOLO_105x60.png';
         </div>
     </div>
 </footer>
+<style>
+/* Variables/Constants */
+:root 
+{ 
+    /* Measures */
+    --footer-main-divs-top-padding: 3px; 
+    --footer-height: 280px;
+    
+    /* SVG Filter Colors */
+    --svg-filter: brightness(0) saturate(100%) invert(36%) sepia(98%) saturate(1639%) hue-rotate(338deg) brightness(101%) contrast(101%);
+    --svg-filter-on-dark-theme: brightness(0) saturate(100%) invert(89%) sepia(23%) saturate(780%) hue-rotate(3deg) brightness(100%) contrast(94%);
+}
+
+/* Footer Section */
+
+footer {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: var( --footer-height );
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+    overflow: hidden;
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 103%;
+    }
+
+    &::before {
+        background: url("/images/apple_1920.png") no-repeat center center;
+        background-size: cover;
+        z-index: -2;
+        opacity: 1;
+    }
+
+    &::after {
+        background-color: rgba(255, 160, 122, .45);
+        backdrop-filter: blur(25px);
+        z-index: -1;
+    }
+
+    #addressIconId {
+        filter: var( --svg-filter );
+    }
+
+    .TextLinksClass, .TextLinksClass>address {
+        transition: color .1s ease, text-shadow .1s ease-out;
+
+        &:link {
+            text-decoration: none;
+        }
+
+        &:hover { 
+            transition: color .1s ease, text-shadow .11s ease;
+            color: var( --thirdy-accent-color-darkest );
+            text-shadow: 3px 3px 20px var( --secondary-accent-color-darkest );
+        }
+    }
+
+    #socialLinksNavId, #pixabayLinkDivId {
+        a {
+            img {
+                opacity: 0.8;
+                transition: scale .1s ease, opacity .1s ease, filter .2s ease-out;
+            }
+
+            &:hover {                 
+                img {
+                    transition: scale .3s ease, opacity .3s ease, filter .3s ease-in;
+                    opacity: 1;
+                    scale: 1.5;
+                    filter: drop-shadow( 0px 0px 10px var( --secondary-accent-color-darkest ) );
+                }
+            }
+        }
+    }
+
+    div {
+        padding-top: 1vh;
+        padding-inline: 1.5vw;
+    }
+    
+    h3 {
+        color: var( --thirdy-accent-color-darkest );
+        padding-bottom: 12px;
+    }
+
+    address, a {
+        font-family: 'EncodeSans';
+        font-weight: bold;
+        color: var( --light-theme-foreground-lightest-70 );
+        font-size: 11pt;
+        line-height: 26pt;
+        font-style: normal;
+        letter-spacing: .4pt;
+        text-decoration: none;
+    }
+
+    @media (min-width: 493px) and (max-width: 1500px) {
+        height: 870px;
+        justify-content: flex-start;
+
+        div {
+            margin-inline: 2%;
+        }
+    }
+
+    @media( max-width: 492px ) {
+        height: 870px;
+        justify-content: flex-start;
+        
+        div {
+            margin-left: 2%;
+        }
+
+        #footerLogoDivId {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+    }
+
+    #mainDivLeftId {
+        width: 33%;
+        height: 100%;
+        padding-top: var( --footer-main-divs-top-padding );
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        #footerLogoDivId {
+            margin-inline: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            @media (min-width: 493px) and (max-width: 1500px) {
+                margin-top: 20px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            #socialLinksNavId {
+                width: 350px;
+                
+                ul {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    list-style: none;
+                    padding-top: 2vh;
+                    padding-inline: 0;
+                }
+            }
+        }
+
+        #csLogoDivId {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            width: 100%;
+            padding-top: 20px;
+
+            @media( max-width: 1500px ) {
+                width: auto;
+                padding: 20px 0;
+                margin-inline: 0;
+                justify-content: center;
+            }
+
+            #CSLogoImgId {
+                margin-inline: 0;
+                margin-top: 0vh;
+                height: 55px;
+                filter: var( --svg-filter ) drop-shadow( 1px 1px 12px var( --foreground-white-color-81 ) );
+            }
+        }
+    }
+
+    #mainDivRightId {
+        width: 67%;
+        padding-top: var( --footer-main-divs-top-padding );
+        padding-left: 0;
+
+        #footerMainSectionDivId {
+            margin-top: 0%;
+            padding-inline: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            width: 100%;
+    
+            div {
+                flex-direction: column;
+            }
+    
+            @media( max-width: 1500px ) {
+                width: 95%;
+                flex-flow: column;
+                justify-content: center;
+                padding-top: 0;
+                height: fit-content;
+            }
+    
+            
+            #contactenosAddressDivId {
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                margin-left: 0;
+                padding-top: 0;
+                padding-left: 0;
+    
+                div { 
+                    display: flex;
+                    flex-direction: row;
+                    margin-inline: 0;
+                    padding-top: 0;
+                    padding-inline: 0;
+                }
+    
+                img {
+                    margin-inline: 0;
+                }
+    
+                address {
+                    padding-left: 10px;
+                }
+            }
+    
+            #externalResourcesDivId {
+                width: 345px;
+                
+                @media( max-width: 1500px ) {
+                    width: 97%;
+    
+                    div {
+                        width: 100%;
+                        margin-inline: 0;
+                        padding-inline: 0;
+                    }
+                }
+    
+                #graphicalResourcesDivId {
+                    padding-top: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+    
+                    #pixabayLinkDivId {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    
+        #copyrightSectionDivId {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            padding: 10px 0;
+            width: 97.5%;
+    
+            @media( max-width: 1500px ) {
+                width: 95%;
+                flex-flow: column;
+                justify-content: center;
+            }
+    
+            div {
+                margin-left: 0;
+            }      
+    
+            #copyrightCenterDivId {
+                padding-top: 0;
+                padding-inline: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+    
+                @media( max-width: 1500px ) {
+                    width: 100%;
+                    margin-inline: 0;
+                    padding-inline: 0;
+                }
+    
+                #copyrightCenterMainDivId {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-inline: 0;
+                    padding-top: 0;
+    
+                    #UGLogoDivId {
+                        width: fit-content;
+                        display: flex;
+                        align-items: center;
+                        margin-inline: 0;
+                        padding-inline: 0;
+        
+                        #UGLogoImgId {
+                            margin-top: 0vh;
+                            height: 50px;
+                            align-self: center;
+                        }
+                    }
+        
+                    #UniFaTextDivId {
+                        display: flex;
+                        flex-direction: column;
+                        width: fit-content;
+                        height: fit-content;
+                        margin-inline: 0;
+                        padding-inline: 2vw;
+                        line-height: 24pt;
+    
+                        strong {
+                            font-size: 11pt;
+                            text-align: center;
+                            justify-content: center;
+                            color: var( --thirdy-accent-color-darkest );
+                        }
+                    }
+        
+                    #FacultadLogoDivId {
+                        width: 87.5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-inline: 0;
+                        
+                        #FCMFLogoImgId {
+                            margin-left: 0vw;
+                            margin-top: 0vh;
+                            height: 65px;
+                        }
+                    }
+                }
+    
+                #copyrightLegendDivId {
+                    height: 30px;
+                    width: 100%;
+                    padding-top: 8px;
+                    display: flex;
+                    justify-content: center;
+                    margin-inline: 0;
+                    
+                    @media( max-width: 1500px ) {
+                        width: 75%;
+                    }
+    
+                    h7 {
+                        font-size: 8pt;
+                        color: var( --foreground-black-color-61 );
+                    }
+                }
+            }
+        }
+    }
+}
+</style>

@@ -1,36 +1,133 @@
 ---
-import '/styles/HeaderStyles.css'
 import PetalsAndFruitsLogo from '@assets/images/Petals&Fruits_Logo_Only_Text_White.webp';
+const { pathname } = Astro.url;
 ---
 <header>
     <div class="HeaderLogoDivClass">
-        <a href="/index/" target="_parent" data-page="index">
+        <a href="/" target="_parent" data-page="index">
             <img src={PetalsAndFruitsLogo.src} alt="Petals&Fruits Text Logo" height="40px">
         </a>
     </div>
     <div  class="HeaderLinksClass">
         <nav>
             <ul>
-                <li data-page="index"><a href="/index/" target="_parent" >Inicio</a></li>
-                <li data-page="QuienesSomos"><a href="/QuienesSomos/" target="_parent" >Quienes Somos</a></li>
-                <li data-page="ProductosServicios"><a href="/ProductosServicios/" target="_parent" >Productos y Servicios</a></li>
-                <li data-page="NuestroEquipo"><a href="/NuestroEquipo/" target="_parent" >Nuestro Equipo</a></li>
-                <li data-page="Contactenos"><a href="/Contactenos/" target="_parent" >Contáctenos</a></li>
+                <li class={pathname === '/' ? 'ActivePageMenu' : ''}><a href="/" target="_parent" >Inicio</a></li>
+                <li class={pathname === '/QuienesSomos/' ? 'ActivePageMenu' : ''} ><a href="/QuienesSomos/" target="_parent" >Quienes Somos</a></li>
+                <li class={pathname === '/ProductosServicios/' ? 'ActivePageMenu' : ''} ><a href="/ProductosServicios/" target="_parent" >Productos y Servicios</a></li>
+                <li class={pathname === '/NuestroEquipo/' ? 'ActivePageMenu' : ''} ><a href="/NuestroEquipo/" target="_parent" >Nuestro Equipo</a></li>
+                <li class={pathname === '/Contactenos/' ? 'ActivePageMenu' : ''} ><a href="/Contactenos/" target="_parent" >Contáctenos</a></li>
             </ul>
         </nav>        
     </div>
 </header>
-<script>
-    window.addEventListener( 'message', ( event ) => {
-        const currentPage = event.data;
-        const menuNavLinks = document.querySelectorAll( '.HeaderLinksClass nav ul li' );
+<style>
+    /* Variables/Constants */
+:root 
+{ 
+    /* Numeric and Measure Constants/Variables */
+    --active-menu-top-bottom-border: 2px solid var( --secondary-accent-color-darkest );
+    --active-menu-border-radius: 4px;
+    --active-menu-text-shadow: 1px 1px 15px var( --secondary-accent-color-darkest );
+}
 
-        menuNavLinks.forEach( menuLink => {
-            
-            if ( menuLink.getAttribute( 'data-page' ) === currentPage && !menuLink.classList.contains( 'ActivePageMenu' ) ) {
-                menuLink.classList.add( 'ActivePageMenu' );
-            } else if ( menuLink.classList.contains( 'ActivePageMenu' ) && menuLink.getAttribute( 'data-page' ) != currentPage )
-                menuLink.classList.remove( 'ActivePageMenu' );
-        } );
-    } );
-</script>
+* { 
+    font-size: 13pt;
+    font-family: Poppins;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* Header Section - Estilo del Encabezado */
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    background-color: var(--primary-accent-color-darkest-70);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 0;
+    gap: 50px;
+    text-align: center;
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+  
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                color: var( --foreground-white-color-61 );
+                text-decoration: none;
+                height: 100%;
+            }
+
+            &:hover {
+                border-top: var( --active-menu-top-bottom-border );
+                border-bottom: 2px solid transparent;
+                border-radius: var( --active-menu-border-radius );
+                
+                a {
+                    color: white;
+                    text-shadow: var( --active-menu-text-shadow );
+                }
+            }
+        }
+    }
+}
+
+.ActivePageMenu { /* Style for the selected menu based on current page, this style exist also in the theme script to hover on menus, this and that one must match and be the same  */
+    border-top: var( --active-menu-top-bottom-border );
+    border-bottom: 2px solid transparent;
+    border-radius: var( --active-menu-border-radius );
+                
+    a {
+        color: white;
+        text-shadow: var( --active-menu-text-shadow );
+    }
+}
+
+.HeaderLogoDivClass {
+    width: 30%;
+    justify-content: right;
+
+    a img {
+        cursor: pointer;
+        opacity: .85;
+    }
+}
+
+.HeaderLinksClass {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+    a {
+        text-decoration: none;
+        padding-inline: 2vw;
+        height: fit-content;
+    }
+
+    @media( max-width: 1217px ) {
+        flex-direction: column;
+        justify-content: center;
+        
+        a {
+            padding-top: 40px;
+            width: fit-content;
+            margin-inline: auto;
+        }
+    }
+}
+</style>

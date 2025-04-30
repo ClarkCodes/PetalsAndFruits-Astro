@@ -1,7 +1,5 @@
-@import url( "/public/styles/BaseCommonStyles.css" );
-
 #pageMainImageDivId {
-    background-image: url( "/src/assets/images/apple_1920.png" );
+    background-image: url("/images/apple_1920.png");
     height: 1000px;
 
     h1 {
@@ -17,6 +15,8 @@
 
         &:hover {
             transition: color .3s ease-out, border .5s ease-out;
+            color: lightyellow;
+    		border: 2px solid lightgreen;
         }
     }
 

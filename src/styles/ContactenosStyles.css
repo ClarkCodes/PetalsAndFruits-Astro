@@ -1,5 +1,21 @@
-@import url( "/public/styles/BaseCommonStyles.css" );
-/*@import url( "../theme/themeStyles.css" );*/
+
+h2, h3 {
+    letter-spacing: .05em;
+}
+
+h1, h2, h3, b, strong {
+    font-family:'EncodeSans';
+    font-weight: bold;
+    color: var( --thirdy-accent-color-darkmid );
+}
+
+.SuccessfulConfirmationTitle {
+    color: var( --success-color )
+}
+
+.UnsuccessfulConfirmationTitle, .ErrorMessageClass {
+    color: var( --error-color )
+}
 
 .ContentClass {
     display: flex;
@@ -38,6 +54,10 @@ form {
         margin-bottom: 3vh;
         border-radius: 4px; 
         box-sizing: border-box;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], select {
+        border: 1px solid var( --primary-accent-color-light );
     }
 
     .ErrorTooltipClass {
@@ -95,6 +115,8 @@ form {
         cursor: pointer;
         transform: scale( 2 );
         margin-right: 20px;
+        accent-color: var( --primary-accent-color-darkest );
+        border-color: var( --primary-accent-color-light );
     }
 
     select {
@@ -109,7 +131,7 @@ form {
     }
 
     input[type="submit"] {
-        background: url( "/public/icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" ) no-repeat;
+        background: url( "/icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" ) no-repeat;
         background-position-x: 20.7vw;
         background-position-y: center;
         background-size: 30px;
@@ -122,6 +144,20 @@ form {
         border-radius: 5px;
         text-transform: uppercase;
         cursor: pointer;
+        background-color: var( --primary-accent-color-darkmid );
+        color: white;
+        border: 3px solid var( --primary-accent-color-light );
+        transition: background-color .2s ease;
+
+        &:hover {
+            background-color: var( --primary-accent-color-light ); /* Lighter on hover */
+            transition: background-color .3s ease;
+        }
+
+        &:active { 
+            background-color: var( --primary-accent-color-darkest ); /* Darker on press */
+            transition: background-color .1s ease;
+        }
 
         &:disabled {
             background-color: var( --disabled-background-color );

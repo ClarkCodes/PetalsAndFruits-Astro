@@ -1,8 +1,8 @@
 ---
+import '../styles/ProductosServiciosStyles.css';
 import Layout from '../layouts/Layout.astro';
-import '/styles/ProductosServiciosStyles.css';
 import Producto from '@components/Producto.astro';
-import { getAllProducts } from './products/utils';
+/* import { getAllProducts } from './products/utils';
 const products = await getAllProducts();
 console.log( products );
 const sanValentinProducts = products.filter( p => p.id_pscategory === 2 );
@@ -13,7 +13,7 @@ const gourmetProducts = products.filter( p => p.id_pscategory === 6 );
 const chocoFresasProducts = products.filter( p => p.id_pscategory === 7 );
 const elegantesProducts = products.filter( p => p.id_pscategory === 8 );
 const surtidosProducts = products.filter( p => p.id_pscategory === 9 );
-const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
+const infantilesProducts = products.filter( p => p.id_pscategory === 10 ); */
 ---
 <Layout title="Productos y Servicios" description="Página de Productos y Servicios, revisa lo que te ofrecemos y escoge lo que quieras">
 	<div id="pageMainImageDivId">
@@ -45,12 +45,12 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 		<section class="Productos">
 			<h2 id="sanValentinTitleId">San Valentín</h2>
 			<div class="GrupoProductos">
-				{ 
+<!-- 				{ 
 					sanValentinProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
 				}
-
+ -->
 				<!-- <div class="producto" >
 					<img src="../common/images/CorazonGirasoles.webp" alt="Corazón de Girasoles">
 					<h3>Corazón de Girasoles</h3>
@@ -74,11 +74,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="parejasTitleId">Parejas</h2>
 			<div class="GrupoProductos">
-				{ 
+	<!-- 			{ 
 					parejasProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Bouquet-Lilas_1280.jpg" alt="Bouquet de Lilas">
 					<h3>Bouquet de Lilas</h3>
@@ -107,11 +107,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="diaPadreMadreTitleId">Día de la Madre y del Padre</h2>
 			<div class="GrupoProductos">
-				{ 
+<!-- 				{ 
 					diaMyPProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Clasico.webp" alt="Canasta Clásica">
 					<h3>Canasta Clásica</h3>
@@ -140,11 +140,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="cumpleaniosTitleId">Cumpleaños</h2>
 			<div class="GrupoProductos">
-				{ 
+				<!-- { 
 					cumpleaniosProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Bouquet-RosasBlancasAmarillas_1280.jpg" alt="Rosas Blancas y Amarillas">
 					<h3>Caja Presente de Rosas</h3>
@@ -180,11 +180,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 		<section class="Productos">
 			<h2 id="gourmetTitleId">Gourmet</h2>
 			<div class="GrupoProductos">
-				{ 
+				<!-- { 
 					gourmetProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Gourmet_BerrySandia_1280.jpg" alt="Berry Sandia">
 					<h3>Berry Sandia</h3>
@@ -218,11 +218,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="chocoFresasTitleId">ChocoFresas</h2>
 			<div class="GrupoProductos">
-				{ 
+				<!-- { 
 					chocoFresasProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Frutales_ChocoFresas_BaniadoParcial-2048x2048.jpg" alt="Bañado Parcial">
 					<h3>Bañado Parcial</h3>
@@ -251,11 +251,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="elegantesTitleId">Elegantes</h2>
 			<div class="GrupoProductos">
-				{ 
+				<!-- { 
 					elegantesProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Elegante_Plenitud.jpg" alt="Plenitud">
 					<h3>Plenitud</h3>
@@ -274,11 +274,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="surtidosTitleId">Surtidos</h2>
 			<div class="GrupoProductos">
-				{ 
+				<!-- { 
 					surtidosProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Surtido_Personal.jpg" alt="Personal">
 					<h3>Personal</h3>
@@ -297,11 +297,11 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 			</div>
 			<h2 id="infantilesTitleId">Infantiles</h2>
 			<div class="GrupoProductos">
-				{ 
+				<!-- { 
 					infantilesProducts.forEach( 
 						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>
 					)
-				}
+				} -->
 				<!-- <div class="producto">
 					<img src="../common/images/Frutal_Infantil_Fiestero.webp" alt="Fiestero">
 					<h3>Fiestero</h3>
@@ -451,7 +451,7 @@ const infantilesProducts = products.filter( p => p.id_pscategory === 10 );
 
 	// Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
 	function handleMouseOver( container: HTMLElement, productImage:HTMLElement ) {
-		container.style.border = "3px solid lightgreen" // Cambio de color de borde
+		container.style.border = "3px solid lightgreen"; // Cambio de color de borde
 		productImage.style.border = "2px solid lightgreen";
 	}
 
