@@ -1,32 +1,45 @@
 ---
 import '../styles/indexStyles.css';
-import '../styles/productosStyles.css';
+import '../styles/ProductosStyles.css';
 import Layout from '../layouts/Layout.astro';
 import ClarkCodesAudioPlayer from '@components/ClarkCodesAudioPlayer.astro';
-import Producto from '@components/Producto.astro';
+import products from '../content/products.json';
+import salesHistory from '../content/sales-history.json';
+import ProductGrouper from '@components/ProductGrouper.astro';
 import loveThingCoverImg from '@assets/images/Satriani-BCN-2023-1.jpg';
 import alwaysWithCoverImg from '@assets/images/Satriani-2-1140x500.jpg';
 import fruitsHeart from '@assets/images/fruits-heart-2048x2048.webp';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+function getTopNSalesIds( sales: typeof salesHistory, n = 4 ) {
+  return sales.reduce( ( top: number[], current ) => {
+    // Insert the current item in the correct place (sorted descending)
+    let inserted = false;
+    for ( let i = 0; i < top.length; i++ ) {
+      if ( current.quant > top[i] ) {
+        top.push( current.id_ps ); // insert at position i
+        inserted = true;
+        break;
+      }
+    }
 
-//import { getCollection } from 'astro:content';
-//const mostPopularProducts = await getCollection( 'mostPopularProducts' )
-// import { db, max, asc, eq, SaleHistory } from 'astro:db';
-// import { getProduct } from './products/utils';
+    if ( !inserted && top.length < n ) {
+      top.push( current.id_ps ); // add at the end if not enough elements
+    }
 
-// const mostPopularIds = await db.select( { value: max( SaleHistory.quant ) } ).from( SaleHistory ).orderBy( asc( SaleHistory.quant ) ).limit( 4 );
-// let mostPopularProducts: any[] = [];
-/* 
-mostPopularIds.forEach( id_row => {
-	let id: number = 0;
-	if( id_row.value != null ){
-		id = Number( id_row.value );
-		mostPopularProducts.push( getProduct( id ) );
-	}
-} ); */
+    if ( top.length > n ) {
+      top.pop(); // keep only top N elements
+    }
 
+    return top;
+  }, []);
+}
+
+const topProductsIds = getTopNSalesIds( salesHistory );
+const mostPopularProducts: typeof products = [];
+topProductsIds.forEach( id => {
+	const gottenProduct = products.find( p => p.id === id );
+	if( gottenProduct ) mostPopularProducts.push( gottenProduct );
+} );
 ---
 <Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
 	<div id="landingWelcomeDivId">
@@ -34,21 +47,15 @@ mostPopularIds.forEach( id_row => {
 	</div>
 	<!-- Sección Principal -->
 	<main>
-		<section class="hero">
+		<section class="ActionCalling">
 			<h2>¡Elige tu arreglo perfecto!</h2>
 			<p>Entregamos frescura y elegancia directamente a tu hogar.</p>
-			<button>Explorar Productos</button>
+			<button onclick="window.location.href='/ProductosServicios/'">Explorar Productos</button>
 		</section>
+		<div class="Separator"></div>
 		<section class="Productos">
 			<h2>Top Productos más elegidos</h2>
-			<div class="GrupoProductos">
-				<!-- TODO: Add products from the DB and not this way -->
-<!-- 				{ 
-					mostPopularProducts.forEach(
-						p => <Producto id={p.id_ps} src={p.ps_img_path} alt={p.alt} name={p.ps_name} description={p.ps_description}></Producto>	
-					)
-				} -->
-			</div>
+			<ProductGrouper productsGroup={mostPopularProducts}></ProductGrouper>
 		</section>
 		<section class="Quote">
 			<div>
@@ -56,10 +63,12 @@ mostPopularIds.forEach( id_row => {
 				<span>Maria Teresa de Calculta</span>
 			</div>                
 		</section>
+		<div class="Separator"></div>
 		<div id="landingPicture2DivId">
 			<h1>Llena sus vidas de flores y amor<br>mientras los puedes abrazar.</h1>
 			<button onclick="window.location.href='/ProductosServicios/'">Elige el Regalo Perfecto</button>
 		</div>
+		<div class="Separator"></div>
 		<section class="FigureClass">
 			<figure> 
 				<img src={fruitsHeart.src} alt="Corazón de Frutas" width="40%">
@@ -75,6 +84,7 @@ mostPopularIds.forEach( id_row => {
 			<ClarkCodesAudioPlayer src="/audios/Always With Me, Always With You.mp3" songName="Always with me, always with you" artist="Joe Satriani" album="Surfing with the alien" coverImg={alwaysWithCoverImg.src} />
 		</section>
 		<div class="Spacer"></div>
+		<div class="Separator"></div>
 		<section class="RazonesEleccion">
 			<div>
 				<h2>Preguntas Frecuentes</h2>
@@ -113,28 +123,6 @@ mostPopularIds.forEach( id_row => {
 				</details>
 			</div>
 		</section>
+		<div class="Separator"></div>
 	</main>
-
 </Layout>
-
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		// Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones
-    	document.querySelector('.hero button')?.addEventListener('click', () => {
-			alert( "¡Gracias por explorar los productos de Petals&Fruits!" );
-			window.location.href='/ProductosServicios/';
-    	});
-  	});
-
-	// Evento cuando la página se carga completamente
-	window.onload = function() {
-		console.log( "Bienvenido a la tienda Petals&Fruits. ¡Estamos felices de que estés aquí!" );
-
-		// Asignamos en las propiedades de eventos mouseover and mouseout no solo de algunos sino de todos los elementos con la clase .producto recorriendolos todos
-		document.querySelectorAll( '.producto' ).forEach( p => 
-		{ 
-			p.setAttribute( 'onmouseover', "handleMouseOver( this, this.querySelector( 'img' ) )" );
-			p.setAttribute( 'onmouseout', "handleMouseOut( this, this.querySelector( 'img' ) )" );
-		} );
-	}
-</script>

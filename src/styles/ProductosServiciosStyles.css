@@ -16,19 +16,21 @@
 }
 
 section { 
-    margin-inline: -4.3%;
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
 }
 
 #contenidoSectionId {
-    margin-inline: 4.3%;
+    margin-left: var( --margin-left-covering );
 
     h2 {
         text-align: center;
+        padding-top: 8rem;
+        padding-bottom: 0;
     }
     
     h3 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 5rem;
     }
 
     ul {
@@ -59,13 +61,16 @@ section {
     }    
 }
 
+.ProductTypeClass {
+    padding-top: 8rem;
+}
+
 .Remember {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     background: var( --light-theme-hero-background );
-    border-bottom: var( --blocks-border );
     padding-top: 4rem;
     padding-bottom: 7rem;
 
@@ -84,14 +89,13 @@ section {
     align-items: center;
 
     iframe {
-        padding-top: 3rem;
+        margin-top: 3rem;
     }
 }
 
 #FloresYSusBeneficios {
     line-height: 30pt;
     padding-bottom: 10rem;
-    border-bottom: var( --blocks-border );
     
     td {
         padding-left: 10px;

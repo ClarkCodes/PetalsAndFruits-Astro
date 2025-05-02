@@ -79,6 +79,8 @@ const { title, description } = Astro.props
 
 	    --blocks-border: 2px solid var( --primary-accent-color-darkmid ); 
 	    --border-white-d-color: #ddd;
+		--margin-left-covering: -4.4%;
+		--width-covering: 100dvw;
 	}
 
 	/* Fonts */
@@ -192,5 +194,13 @@ const { title, description } = Astro.props
 	        background: linear-gradient( 180deg, var( --success-color-light ), var( --success-color ) );
 	        transition: background-color .1s ease-in;
 	    }
+	}
+	
+	.Separator {
+	    height: 2px;
+		width: var( --width-covering );
+	    border-bottom: var( --blocks-border );
+	    display: flex;
+	    justify-self: center;
 	}
 </style>

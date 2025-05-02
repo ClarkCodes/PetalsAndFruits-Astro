@@ -23,14 +23,14 @@
     }
 }
 
-.hero {
+.ActionCalling {
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
+    padding: 2rem 0;
     text-align: center;
-    padding: 2rem 1rem;
+    line-height: 40pt;
     background: var( --light-theme-hero-background );
     color: var( --foreground-gray-5-color );
-    border-bottom: var( --blocks-border );
-    margin-inline: -4.3%;
-    line-height: 40pt;
 
     h2 {
         margin-bottom: 0.5rem;
@@ -49,14 +49,14 @@
 }
 
 .Quote {
-    text-align: right;
-    padding: 10rem 1rem;
-    color: var( --foreground-gray-5-color );
-    background: var( --light-theme-hero-background );
-    border-bottom: var( --blocks-border );
-    margin-inline: -4.3%;
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
+    padding: 10rem 0;
     display: flex;
     justify-content: center;
+    text-align: right;
+    color: var( --foreground-gray-5-color );
+    background: var( --light-theme-hero-background );
 
     div {
         width: fit-content;
@@ -75,8 +75,8 @@
 
 #landingPicture2DivId {
     position: relative;
-    margin-left: -4.4%;
-    margin-right: -4.3%;
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
     display: flex;
     background-image: url( "/src/assets/images/heart-tree-field-4k-cm-1360x768.jpg" );
     background-repeat: no-repeat;
@@ -118,10 +118,11 @@
 }
 
 .FigureClass {
-    padding: 10rem 1rem;
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
+    padding: 10rem 0;
     display: flex;
     justify-content: center;
-    margin-inline: -4.3%;
 
     figure {
         width: fit-content;
@@ -140,27 +141,27 @@
 }
 
 #audioPlayerSectionId {
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
     display: flex;
     justify-content: center;
-    margin-inline: -4.3%;
 }
 
-
 .RazonesEleccion {
-    background: var( --light-theme-hero-background );
-    padding: 10rem 1rem;
-    color: var( --foreground-gray-5-color );
-    border-top: var( --blocks-border );
-    border-bottom: var( --blocks-border );
-    margin-inline: -4.3%;
+    width: var( --width-covering );
+    margin-left: var( --margin-left-covering );
+    padding: 10rem 0;
     display: flex;
     justify-content: center;
+    background: var( --light-theme-hero-background );
+    color: var( --foreground-gray-5-color );
 
     details {
         summary {
             font-size: 22pt;
             line-height: 70pt;
             font-weight: bold;
+            cursor: pointer;
         }
 
         p {

@@ -121,6 +121,4 @@ section {
 
 #spacerDivId {
     height: 12rem;
-    border-bottom: var( --blocks-border );
-    margin-inline: -4.3%;
 }

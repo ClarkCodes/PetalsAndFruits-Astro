@@ -1,0 +1,40 @@
+---
+import Product from './Product.astro';
+import products from '../content/products.json';
+
+interface Props{
+	category_id?: number;
+	productsGroup?: ({
+	    id: number;
+	    name: string;
+	    category_id: number;
+	    description: string;
+	    price: number;
+	    img_path: string;
+	    alt: string;
+	})[];
+}
+
+const { category_id, productsGroup } = Astro.props as Props;
+const productsArray: typeof productsGroup = category_id ? products.filter( p => p.category_id === category_id ) : productsGroup;
+---
+<div class="GrupoProductos">
+	{
+		productsArray?.map( product => (
+		    <Product id={product.id} name={product.name} description={product.description} img_src={product.img_path} alt={product.alt} />
+  		))
+	}
+</div>
+<style>
+	.GrupoProductos {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 7rem;
+        border-bottom: var( --blocks-border );
+        padding-bottom: 7rem;
+    }
+</style>

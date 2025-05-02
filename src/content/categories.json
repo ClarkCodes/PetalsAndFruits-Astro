@@ -1,0 +1,11 @@
+[
+    { "id": 1, "name": "San Valentín", "type_id": 1, "h_ref": "#sanValentinTitleId" },
+    { "id": 2, "name": "Parejas", "type_id": 1, "h_ref": "#parejasTitleId" },
+    { "id": 3, "name": "Día de la Madre y del Padre", "type_id": 1, "h_ref": "#diaPadreMadreTitleId" },
+    { "id": 4, "name": "Cumpleaños", "type_id": 1, "h_ref": "#cumpleaniosTitleId" },
+    { "id": 5, "name": "Gourmet", "type_id": 2, "h_ref": "#gourmetTitleId" },
+    { "id": 6, "name": "Choco Fresas", "type_id": 2, "h_ref": "#chocoFresasTitleId" },
+    { "id": 7, "name": "Elegantes", "type_id": 2, "h_ref": "#elegantesTitleId" },
+    { "id": 8, "name": "Surtidos", "type_id": 2, "h_ref": "#surtidosTitleId" },
+    { "id": 9, "name": "Infantiles", "type_id": 2, "h_ref": "#infantilesTitleId" }
+]
