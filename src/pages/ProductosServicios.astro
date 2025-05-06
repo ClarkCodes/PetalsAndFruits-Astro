@@ -5,7 +5,9 @@ import Layout from '../layouts/Layout.astro';
 import categories from '../content/categories.json';
 import productTypes from '../content/product-types.json';
 import ProductGrouper from '@components/ProductGrouper.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
+<ClientRouter/>
 <Layout title="Productos y Servicios" description="Página de Productos y Servicios, revisa lo que te ofrecemos y escoge lo que quieras">
 	<div id="pageMainImageDivId">
 		<h1>Del campo...<br>A tus manos.</h1>

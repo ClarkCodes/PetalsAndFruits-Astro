@@ -88,5 +88,29 @@
 		"id_ps": 1, 
 		"quant": 2, 
 		"sale_date": "2024/04/05" 
+	},
+	{ 
+		"id": 16, 
+		"id_ps": 29, 
+		"quant": 7, 
+		"sale_date": "2024/04/08" 
+	},
+	{ 
+		"id": 17, 
+		"id_ps": 3, 
+		"quant": 5, 
+		"sale_date": "2024/04/09" 
+	},
+	{ 
+		"id": 18, 
+		"id_ps": 29, 
+		"quant": 10, 
+		"sale_date": "2024/04/10" 
+	},
+	{ 
+		"id": 19, 
+		"id_ps": 3, 
+		"quant": 9, 
+		"sale_date": "2024/04/11" 
 	}
 ]

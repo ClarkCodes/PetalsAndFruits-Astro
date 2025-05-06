@@ -11,7 +11,7 @@ import ugLogo from '@assets/images/UG_LOGO_2023_SOLO_105x60.png';
     <div id="mainDivLeftId">
         <div id="footerLogoDivId">
             <a href="/" target="_parent" id="footerLogoLinkId">
-                <img src={petalsAndFruitsLogo.src} width="350px" alt="Logo Petals&Fruits"/>
+                <img id="logoImageId" src={petalsAndFruitsLogo.src} width="350px" alt="Logo Petals&Fruits"/>
             </a>
             <nav id="socialLinksNavId">
                 <ul>
@@ -72,7 +72,7 @@ import ugLogo from '@assets/images/UG_LOGO_2023_SOLO_105x60.png';
                     </div>
                 </div>
                 <div id="copyrightLegendDivId">
-                    <h7>© 2024 Grupo #4 - Desarrollo de Aplicaciones Web - SOF-S-VE-6-2 Ciclo II - Ingeniería de Software</h7>
+                    <h7>© 2024 Proyecto Personal de Practica para aprender Astro - Ingeniería de Software</h7>
                 </div>
             </div>
         </div>
@@ -229,6 +229,17 @@ footer {
                 margin-top: 20px;
                 width: 100%;
                 justify-content: center;
+            }
+
+            #logoImageId {
+                transition: filter 3s ease .2s;
+
+                &:hover{
+                    filter: drop-shadow( 1px 1px 3px orange ) 
+                    drop-shadow( 5px 5px 15px var( --secondary-accent-color-darkmid ) )
+                    ;
+                    transition: filter .2s ease;
+                }
             }
 
             #socialLinksNavId {

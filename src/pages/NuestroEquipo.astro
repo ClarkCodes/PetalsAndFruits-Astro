@@ -5,6 +5,7 @@ import josephKentImg from '@assets/images/Clark.webp';
 import petter from '@assets/images/Petter.webp'; 
 import andrea from '@assets/images/Andrea.webp';
 import infografia from '@assets/images/infografia_productividad.webp';
+import { Image } from 'astro:assets';
 ---
 <Layout title="Nuestro Equipo" description="Página de Nuestro Equipo, conoce quienes trabajamos para darte lo mejor en la industria">
 	<div id="pageMainImageDivId">
@@ -16,17 +17,17 @@ import infografia from '@assets/images/infografia_productividad.webp';
 			<h2>Integrantes</h2>
 			<div id="integrantesDivId">
 				<div class="Miembro">
-					<img src={josephKentImg.src} alt="Joseph Kent">
+					<Image src={josephKentImg} alt="Joseph Kent" decoding="async" loading="lazy"/>
 					<h3>Joseph Kent</h3>
 					<p>Especialista en arreglos frutales y en el diseño innovador de composiciones frescas y naturales.</p>
 				</div>
 				<div class="Miembro">
-					<img src={petter.src} alt="Petter Acosta Espinoza">
+					<Image src={petter} alt="Petter Acosta Espinoza" decoding="async" loading="lazy"/>
 					<h3>Petter Acosta Espinoza</h3>
 					<p>Fundador y líder del equipo, experto en la creación de arreglos florales personalizados.</p>
 				</div>
 				<div class="Miembro">
-					<img src={andrea.src} alt="Andrea Salinas Martinez">
+					<Image src={andrea} alt="Andrea Salinas Martinez" decoding="async" loading="lazy"/>
 					<h3>Andrea Salinas Martínez</h3>
 					<p>Coordinadora de eventos y encargada de la atención al cliente, asegurando que cada cliente quede satisfecho.</p>
 				</div>
@@ -38,7 +39,7 @@ import infografia from '@assets/images/infografia_productividad.webp';
 		<section id="infografia">
 			<h2>Nos enfocamos en la Productividad de nuestros Colaboradores</h2>
 			<figure> 
-				<img src={infografia.src} alt="Infografia de la Productividad" >
+				<Image src={infografia} alt="Infografia de la Productividad" decoding="async" loading="lazy"/>
 				<figcaption>Infografía: Productividad Real en el Trabajo.</figcaption>
 			</figure> 
 		</section>

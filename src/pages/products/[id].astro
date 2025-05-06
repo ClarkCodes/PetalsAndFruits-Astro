@@ -1,11 +1,149 @@
 ---
 import '../../styles/ProductDetailsStyles.css';
 import Layout from '../../layouts/Layout.astro';
+import products from '../../content/products.json';
+import categories from '../../content/categories.json';
+import productTypes from '../../content/product-types.json';
+import { ClientRouter } from 'astro:transitions';
+
+export async function getStaticPaths() {
+  return products.map( p => ( {params: {id: p.id}} ) );
+}
+
+const { id } = Astro.params;
+const product = products.at( id - 1 );
+const category = categories.find( cat => cat.id === product?.category_id );
+const type_name = productTypes.find( type => type.id === category?.type_id )?.name;
+const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency', currency: 'USD' } );
 ---
+<ClientRouter/>
 <Layout title="Detalles" description="Detalles del producto seleccionado">
-<div style="width: 100dvw; height: 100%;" >
-    <p style="text-align: center;">
-        Pagina en Construccion Pronto estara disponible, gracias!
-    </p>
-</div>
+    <main>
+        <div id="breadcrumbsDivId">
+            <a href="/ProductosServicios/">Productos y Servicios</a> <span id="chevron-right">&#10132;</span> 🌸 <span>Producto {id}</span>
+        </div>
+        <div id="containerDivId">
+            <div id="productImageDivId">
+                <img src={product?.img_path} alt={product?.alt} transition:name={ `img-${id}` } transition:animate="slide">
+            </div>
+            <div id="productDetailsDivId">
+                <h3>Detalles del Producto</h1>
+                <h1>{product?.name}</h1>
+                <h4><strong>{category?.name} - {type_name}</strong></h4>
+                <p>{product?.description}</p>
+                <h2>Precio: {productPrice}</h2>
+            </div>
+        </div>
+    </main>
+    <div class="Separator"></div>
 </Layout>
+<style>
+
+#breadcrumbsDivId{
+    margin-top: 90px;
+
+    a, span{
+        font-size: x-small;
+        border-radius: 8px;
+        padding: 5px;
+    }
+
+    a{
+        background-color: indigo;
+        color: whitesmoke;
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    span{
+        background-color: lightyellow;
+        color: indigo;
+    }
+
+    #chevron-right{
+        font-weight: bold;
+        font-size: 14pt;
+    }
+}
+
+#containerDivId{
+    width: 100%;
+    height: 75dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 70px 0;
+    gap: 5%;
+    
+    #productImageDivId{
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        
+        img {
+            height: auto;
+            width: auto;
+            max-width: 80%;
+            max-height: 75dvh;
+            aspect-ratio: auto;
+            border-radius: 12px;
+            filter: drop-shadow( 3px 3px 10px rgb( 0 0 0 / 70% ) );
+
+            @media ( min-height: 210px ) and ( max-height: 230px ){
+                min-height: 70dvh;
+            }
+        }
+    }
+
+    #productDetailsDivId{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h1{
+            font-size: 55pt;
+            padding-bottom: 1.7rem;
+            color: var( --primary-accent-color-darkest );
+            line-height: 60pt;
+        }
+        
+        h2{
+            font-size: 30pt;
+            color: var( --success-color );
+        }
+
+        h3{
+            padding-bottom: .5rem;
+        }
+
+        h4 strong{
+            font-size: medium;
+            color: var( --foreground-gray-5-color );
+        }
+
+        h4{
+            padding-bottom: 3rem;
+        }
+        
+        p{
+            width: 70%;
+            font-size: 16pt;
+            line-height: 40pt;
+        }
+    }
+}
+</style>
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const img : HTMLImageElement | null = document.querySelector('#productImageDivId img');
+        if ( img && img.clientHeight <= 260 ) { // Makes the image bigger if it is too small
+            img.style.minHeight = '70dvh';
+        }
+    });
+</script>

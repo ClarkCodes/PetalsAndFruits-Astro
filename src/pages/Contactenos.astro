@@ -2,6 +2,7 @@
 import '../styles/ContactenosStyles.css';
 import Layout from '../layouts/Layout.astro';
 import errorIcon from '@assets/icons/error-icon.png';
+import SendIcon from '../../public/icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
 ---
 <Layout title="Contáctenos" description="Página de Contactenos, ponte en contacto con nostros para solicitar productos, servicios o información">
 	<div id="pageMainImageDivId" style="height: 100px;"></div>
@@ -19,22 +20,22 @@ import errorIcon from '@assets/icons/error-icon.png';
 				<div id="formDivId">
 					<form name="contactenosForm" method="post">
 						<label for="txtNamesId" >Nombres *</label><br>
-						<input type="text" id="txtNamesId" name="names" placeholder="Escriba sus dos nombres..." ><br>
+						<input type="text" id="txtNamesId" name="names" placeholder="Escriba sus dos nombres..." autocomplete="given-name additional-name" ><br>
 						<span class="ErrorTooltipClass" id="namesTooltipId"><img src={errorIcon.src} />Se requiere que llene el campo con sus Nombres</span>
 
 						<label for="txtLastNamesId" >Apellidos *</label><br>
-						<input type="text" id="txtLastNamesId" name="lastNames" placeholder="Escriba sus dos apellidos..." ><br>
+						<input type="text" id="txtLastNamesId" name="lastNames" placeholder="Escriba sus dos apellidos..." autocomplete="family-name" ><br>
 						<span class="ErrorTooltipClass" id="lastNamesTooltipId"><img src={errorIcon.src} />Se requiere que llene el campo con sus Apellidos</span>
 
 						<div class="PhoneAndMailClass">
 							<div id="phoneDivId">
 								<label for="txtPhoneId" id="lblPhoneId">Teléfono *</label><br>
-								<input type="tel" pattern="[0-9]*" id="txtPhoneId" name="phone" placeholder="Escriba su número de teléfono..." >
+								<input type="tel" pattern="[0-9]*" id="txtPhoneId" name="phone" placeholder="Escriba su número de teléfono..." autocomplete="mobile tel-area-code tel-local" >
 								<span class="ErrorTooltipClass" id="phoneTooltipId"><img src={errorIcon.src} /><span id="phoneTooltipMsgId"></span></span>
 							</div>
 							<div id="mailDivId">
 								<label for="txtEmailId" >Correo Electrónico *</label><br>
-								<input type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="txtEmailId" name="email" placeholder="Escriba su correo electrónico..." ><br>
+								<input type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="txtEmailId" name="email" placeholder="Escriba su correo electrónico..." autocomplete="email" ><br>
 								<span class="ErrorTooltipClass" id="emailTooltipId"><img src={errorIcon.src} /><span id="emailTooltipMsgId"></span></span>
 							</div>
 						</div>
@@ -57,7 +58,9 @@ import errorIcon from '@assets/icons/error-icon.png';
 						</label><br>
 						<span class="ErrorTooltipClass" id="acceptanceTooltipId"><img src={errorIcon.src} />Se requiere que acepte la Politica de Protección de Datos para continuar</span>
 
-						<input type="submit" value="Enviar" id="submitButtonId" >
+						<button type="submit" id="submitButtonId">
+							<SendIcon/> ENVIAR
+						</button>
 					</form>
 				</div>
 
@@ -77,3 +80,4 @@ import errorIcon from '@assets/icons/error-icon.png';
 		<div class="Separator"></div>
 	</main>
 </Layout>
+<script src="../scripts/ValidacionFormulario.js"></script>

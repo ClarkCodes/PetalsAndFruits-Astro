@@ -9,29 +9,31 @@ import ProductGrouper from '@components/ProductGrouper.astro';
 import loveThingCoverImg from '@assets/images/Satriani-BCN-2023-1.jpg';
 import alwaysWithCoverImg from '@assets/images/Satriani-2-1140x500.jpg';
 import fruitsHeart from '@assets/images/fruits-heart-2048x2048.webp';
+import { Image } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
 
 function getTopNSalesIds( sales: typeof salesHistory, n = 4 ) {
-  return sales.reduce( ( top: number[], current ) => {
-    // Insert the current item in the correct place (sorted descending)
-    let inserted = false;
-    for ( let i = 0; i < top.length; i++ ) {
-      if ( current.quant > top[i] ) {
-        top.push( current.id_ps ); // insert at position i
-        inserted = true;
-        break;
-      }
-    }
+  	return sales.reduce( ( top: number[], current ) => {
+		// Insert the current item in the correct place (sorted descending)
+    	let inserted = false;
+    	for ( let i = 0; i < top.length; i++ ) {
+      		if ( current.quant > top[i] ) {
+	        	top.push( current.id_ps ); // insert at position i
+    	    	inserted = true;
+        		break;
+      		}
+    	}
 
-    if ( !inserted && top.length < n ) {
-      top.push( current.id_ps ); // add at the end if not enough elements
-    }
+    	if ( !inserted && top.length < n ) {
+      		top.push( current.id_ps ); // add at the end if not enough elements
+    	}
 
-    if ( top.length > n ) {
-      top.pop(); // keep only top N elements
-    }
+    	if ( top.length > n ) {
+      		top.pop(); // keep only top N elements
+    	}
 
-    return top;
-  }, []);
+    	return top;
+  	}, []);
 }
 
 const topProductsIds = getTopNSalesIds( salesHistory );
@@ -41,6 +43,7 @@ topProductsIds.forEach( id => {
 	if( gottenProduct ) mostPopularProducts.push( gottenProduct );
 } );
 ---
+<ClientRouter/>
 <Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
 	<div id="landingWelcomeDivId">
 		<h1>Dílo con Flores...<br> Exprésalo con Frutas</h1>
@@ -71,7 +74,7 @@ topProductsIds.forEach( id => {
 		<div class="Separator"></div>
 		<section class="FigureClass">
 			<figure> 
-				<img src={fruitsHeart.src} alt="Corazón de Frutas" width="40%">
+				<Image src={fruitsHeart} alt="Corazón de Frutas" width="700" decoding="async" loading="lazy"/>
 				<figcaption>Figura: Corazón hecho de Frutas.</figcaption>
 				<h2 class="IntermidiateTitle">Llega a sus corazónes,<br>contenta con Frutas sus almas.</h2>
 			</figure> 
@@ -86,8 +89,8 @@ topProductsIds.forEach( id => {
 		<div class="Spacer"></div>
 		<div class="Separator"></div>
 		<section class="RazonesEleccion">
+			<h2>Preguntas Frecuentes</h2>
 			<div>
-				<h2>Preguntas Frecuentes</h2>
 				<details>
 					<summary>
 						¿Por qué comprar tu regalo en Petals&Fruits?
@@ -98,7 +101,7 @@ topProductsIds.forEach( id => {
 						que conservan la elegancia y atención al detalle que nos caracterizan. Los mejores 
 						arreglos de Frutas y Flores para los que más quieres.
 					</p>
-					</details>
+				</details>
 				<details>
 					<summary>
 						¿Qué regalos Puedes comprar?

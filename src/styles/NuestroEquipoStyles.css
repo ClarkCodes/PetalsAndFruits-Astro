@@ -30,8 +30,8 @@ section {
     align-items: center;
 }
 
-h2 {
-    padding-top: 7rem;
+body h2 {
+    padding-top: 9rem;
     padding-bottom: 5rem;
     justify-self: center;
 }
@@ -101,7 +101,6 @@ span {
 }
 
 #trabajo {
-    
     padding-bottom: 10rem;
     
     p {
@@ -110,7 +109,7 @@ span {
     }
     
     button {
-        margin-top: 4rem;
+        margin-top: 7rem;
         padding: 20px 50px;
         font-size: x-large;
     }
