@@ -3,45 +3,13 @@ import '../styles/indexStyles.css';
 import '../styles/ProductosStyles.css';
 import Layout from '../layouts/Layout.astro';
 import ClarkCodesAudioPlayer from '@components/ClarkCodesAudioPlayer.astro';
-import products from '../content/products.json';
-import salesHistory from '../content/sales-history.json';
 import ProductGrouper from '@components/ProductGrouper.astro';
 import loveThingCoverImg from '@assets/images/Satriani-BCN-2023-1.jpg';
 import alwaysWithCoverImg from '@assets/images/Satriani-2-1140x500.jpg';
 import fruitsHeart from '@assets/images/fruits-heart-2048x2048.webp';
 import { Image } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
-
-function getTopNSalesIds( sales: typeof salesHistory, n = 4 ) {
-  	return sales.reduce( ( top: number[], current ) => {
-		// Insert the current item in the correct place (sorted descending)
-    	let inserted = false;
-    	for ( let i = 0; i < top.length; i++ ) {
-      		if ( current.quant > top[i] ) {
-	        	top.push( current.id_ps ); // insert at position i
-    	    	inserted = true;
-        		break;
-      		}
-    	}
-
-    	if ( !inserted && top.length < n ) {
-      		top.push( current.id_ps ); // add at the end if not enough elements
-    	}
-
-    	if ( top.length > n ) {
-      		top.pop(); // keep only top N elements
-    	}
-
-    	return top;
-  	}, []);
-}
-
-const topProductsIds = getTopNSalesIds( salesHistory );
-const mostPopularProducts: typeof products = [];
-topProductsIds.forEach( id => {
-	const gottenProduct = products.find( p => p.id === id );
-	if( gottenProduct ) mostPopularProducts.push( gottenProduct );
-} );
+export const prerender = true;
 ---
 <ClientRouter/>
 <Layout title="Inicio" description="Página de Inicio de Petals&Fruits, mira lo que tenemos para ti">
@@ -58,7 +26,11 @@ topProductsIds.forEach( id => {
 		<div class="Separator"></div>
 		<section class="Productos">
 			<h2>Top Productos más elegidos</h2>
-			<ProductGrouper productsGroup={mostPopularProducts}></ProductGrouper>
+			<ProductGrouper populars={true} server:defer >
+				<div id="loaderContainerId" slot="fallback">
+					<div class="loader"></div>
+				</div>
+			</ProductGrouper>
 		</section>
 		<section class="Quote">
 			<div>
@@ -80,7 +52,7 @@ topProductsIds.forEach( id => {
 			</figure> 
 		</section>
 		<section id="audioPlayerSectionId">
-			<ClarkCodesAudioPlayer src="/audios/Love Thing.mp3" songName="Love Thing" artist="Joe Satriani" album="Crystal Planet" coverImg={loveThingCoverImg.src} />
+			<ClarkCodesAudioPlayer src="/audios/Love Thing.mp3" songName="Love Thing" artist="Joe Satriani" album="Crystal Planet" coverImg={loveThingCoverImg.src} autoplay/>
 		</section>
 		<h2 class="IntermidiateTitle">Así como nuestras Flores y Frutas...<br>¡Disfruta de una buena Música!</h2>
 		<section id="audioPlayerSectionId">

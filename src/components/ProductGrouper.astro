@@ -1,26 +1,100 @@
 ---
 import Product from './Product.astro';
 import products from '../content/products.json';
+import salesHistory from '../content/sales-history.json';
 
 interface Props{
 	category_id?: number;
-	productsGroup?: ({
-	    id: number;
-	    name: string;
-	    category_id: number;
-	    description: string;
-	    price: number;
-	    img_path: string;
-	    alt: string;
-	})[];
+	populars?: boolean;
 }
 
-const { category_id, productsGroup } = Astro.props as Props;
-const productsArray: typeof productsGroup = category_id ? products.filter( p => p.category_id === category_id ) : productsGroup;
+interface IdAndQuant{
+	id: number;
+	quant: number;
+}
+
+const { category_id, populars } = Astro.props as Props;
+
+/**
+ * Consolidates the specified Sales History array into a new array with no repeated id elements, leaving only one of the previously repeated if existed but with cumulative unified sales amounts including the truncated elements.
+ *
+ * @param {salesHistory} sales The given Sales History Array to be consolidated.
+ * @returns {IdAndQuant[]} A new consolidated array, simplified with only the necessary members Id and Quant, ready for an improved comparison.
+ */
+function consolidateIds( sales: typeof salesHistory ): IdAndQuant[] {
+  	const consolidatorMap = new Map<number, IdAndQuant>(); // <Id, IdAndQuant>
+
+  	for ( const sale of sales ) {
+    	let existingSale = consolidatorMap.get( sale.id_ps );
+
+	    if ( existingSale ) existingSale.quant += sale.quant; // Accumulate quantity if an element with the verifying id is already present
+		else consolidatorMap.set( sale.id_ps, { id: sale.id_ps, quant: sale.quant } ); // Added to the map if not present yet
+  	}
+
+  	return Array.from( consolidatorMap.values() ); // Return an array of the consolidated items with accumulated sale quantities
+}
+
+/**
+ * Get the specified number of Top Sales Product Ids from a given Sales History Array.
+ *
+ * @param {IdAndQuant} sales The given Sales History Array.
+ * @param {number} n The numeric quantity of Id element to retrieve.
+ * @returns {number[]} The resulting array with the retrieved top sales Product Ids.
+ */
+function getTopNSalesIds( sales: IdAndQuant[], n: number = 4 ): number[] {
+ 	let top: IdAndQuant[] = Array.from( { length: n }, () => ( { id: 0, quant: 0 } as IdAndQuant ) ); // Array to store the top 4 elements with the higest sale quantities, the most sold
+
+	for ( const sale of sales ){ // Iterate over the consolidated sales array
+		let topIndex2Insert = -1; // This represents the index in the top array where a new element should be inserted if it results greater than any already existing one in the top array
+
+		while ( sale.quant > top[topIndex2Insert + 1].quant ){ // Verify if the current element quantity is greater than every element in the top array
+			if ( topIndex2Insert < n - 1 ) topIndex2Insert++; // Increments in 1 to verify with the next element in top
+			if( topIndex2Insert == n - 1 ) break; // While loop Exit condition
+		}
+		
+		if ( topIndex2Insert > -1 ){ // If the index is greater than -1 then it means the current sale was greater than an existing one
+			if ( topIndex2Insert == 0 ) { // If it is 0 then it means it was only greater than the first element in top and it has to be replaced directly, no sorting needed
+				top[0].quant = sale.quant;
+				top[0].id = sale.id;
+			}
+			else{ // If the index is even greater then a sorting proccess should be performed to take out the first element in top and place the new element in the index position where it has to be
+				if ( top[topIndex2Insert].quant == 0 && top[topIndex2Insert].id == 0 ) { // But if the existing element values in top are both 0, the initial value, then it means it has not been populated yet so the new element is placed with no sorting proccess needed
+					top[topIndex2Insert].quant = sale.quant; 
+					top[topIndex2Insert].id = sale.id;
+				}
+				else
+				for ( let sortingIndex = 1; sortingIndex <= topIndex2Insert; sortingIndex++ ){ // Sorting reordering proccess to displace existing lower elements and insert the new element in the index position in the top array where it has to be
+					top[sortingIndex - 1].quant = top[sortingIndex].quant;
+					top[sortingIndex - 1].id = top[sortingIndex].id;
+
+					if ( sortingIndex == topIndex2Insert ){
+						top[sortingIndex].quant = sale.quant;
+						top[sortingIndex].id = sale.id;
+					}
+				}
+			}
+		}
+	}
+	return top.map( IdQuant => IdQuant.id ); // Returns an array with only the top 4 ids, quants were only needed for comparison evaluation so they are no longer needed
+}
+
+const mostPopularProducts: typeof products = [];
+
+if ( populars ){
+	const consolidatedSales: IdAndQuant[] = consolidateIds( salesHistory );
+	const topProductsIds = getTopNSalesIds( consolidatedSales );
+	
+	for( const id of topProductsIds ){
+		const gottenProduct = products.at( id - 1 );
+		if( gottenProduct ) mostPopularProducts.push( gottenProduct );
+	}
+}
+
+const productsArray: typeof products = category_id ? products.filter( p => p.category_id === category_id ) : mostPopularProducts;
 ---
 <div class="GrupoProductos">
 	{
-		productsArray?.map( product => (
+		productsArray.map( product => (
 		    <Product id={product.id} name={product.name} description={product.description} img_src={product.img_path} alt={product.alt} />
   		))
 	}

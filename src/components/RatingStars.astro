@@ -1,0 +1,96 @@
+---
+import ToolTip from '@components/ToolTip.astro';
+import FullStar from '../../public/icons/star_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg';
+import EmptyStar from '../../public/icons/star_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg';
+
+const { rating, maxStars, starSize } = Astro.props;
+
+const fillColor: string = `#ffd700`; // Gold
+const fillEmptyColor: string = `#d3d3d3`; // Grey
+const ratingPercentage: string = ( ( rating / maxStars ) * 100 ) + "%";
+const ratingToolTipContent: string = rating + ' ⭐ ' + ratingPercentage;
+
+let ratingArray: string[] = Array.from( { length: maxStars }, () => "" );
+
+/** Builds the visual representation of the rating with corresponding stars, painting the proper star based on the rating, following a number line discrimination approach. */
+function buildRating(){
+    for ( let index = 0; index < ratingArray.length; index++ ){
+        switch ( true ){
+            case ( rating >= index + 1 ):
+                ratingArray[index] = "fullStar";
+                break;
+            case ( rating <= index ):
+                ratingArray[index] = "emptyStar";
+                break;
+            case ( rating > index && rating < index + 1 ):
+                ratingArray[index] = "decimalStar";
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+buildRating();
+---
+<div class="star-rating" data-rating={rating} data-star-size={starSize} >
+    {
+        ratingArray.map( star => ( 
+            star === "fullStar" ? 
+            <FullStar fill={fillColor} height={starSize} width={starSize} />
+            :
+            star === "emptyStar" ?
+            <EmptyStar fill={fillEmptyColor} height={starSize} width={starSize} />
+            : 
+            <div id="partialStarDivId">
+                <EmptyStar fill={fillColor} height={starSize} width={starSize} />
+                
+                <svg id="fullStarId" fill={fillColor} height={starSize} width={starSize} clip-path="url(#partialFilling)" viewBox="0 -960 960 960">
+                    <defs>
+                        <clipPath id="partialFilling" width={starSize}>
+                            <rect id="rectMaskId" x="0" y="0" width={starSize} height={starSize} />
+                        </clipPath>
+                    </defs>
+                    <path d="M480-269 314-169q-11 7-23 6t-21-8q-9-7-14-17.5t-2-23.5l44-189-147-127q-10-9-12.5-20.5T140-571q4-11 12-18t22-9l194-17 75-178q5-12 15.5-18t21.5-6q11 0 21.5 6t15.5 18l75 178 194 17q14 2 22 9t12 18q4 11 1.5 22.5T809-528L662-401l44 189q3 13-2 23.5T690-171q-9 7-21 8t-23-6L480-269Z"/>
+                </svg>
+            </div>
+  	    ))
+    }
+    <ToolTip inert role="tooltip" tipPosition="top" tipContent={ratingToolTipContent} bgColor="#ff4c3c"></ToolTip>
+</div>
+<style>
+.star-rating {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #partialStarDivId{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+    }
+}
+</style>
+<script>
+/** Sets the proper visual painting amount representation on an incomplete star that stands for a decimal number, adjusting the needed mask coverage i.e.: in the rating 3.4 this is the representation of the .4 decimal part.
+* @param {number} givenRating The raiting of something with whole number and decimal part if present
+*/
+function setDecimalStar( givenRating : number ){
+    const rateClipper = document.querySelector( '#rectMaskId' ) as HTMLElement;
+    const fullStarMasker = document.querySelector( '#fullStarId' ) as HTMLElement;
+    const currentRateAsWidth: number = ( ( givenRating % 1 ) * 3.2 ) + 16; // Only the decimal part will be taken to work with, then this is multiplied by a number and then another number is added to that result, these 2 numbers are related to the decimalStarLayout div width measure in px which has to be in a certain range to work properly, so these are adjusting numbers for the mask work properly on the star and this can be painted correctly
+    rateClipper?.setAttribute( 'width', ( currentRateAsWidth ).toString() );
+    const marginSize : number = Number( document.querySelector( '.star-rating' )?.getAttribute( 'data-star-size' ) ) * -1;
+    fullStarMasker.style.marginLeft = marginSize + "px";
+    rateClipper.style.marginLeft = marginSize + "px";
+}
+
+document.addEventListener( "astro:page-load", () => { // Sets the mask clippath width properly every time the page is shown, needed for the clippath to not be stuck and be in the correct proportion
+    const rating : number = Number( document.querySelector( '.star-rating' )?.getAttribute( 'data-rating' ) );
+    setDecimalStar( rating );        
+});
+
+</script>

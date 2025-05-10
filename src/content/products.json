@@ -6,7 +6,11 @@
 		"description": "Refinadas Rosas Rojas adornadas con Girasoles en el borde, y con chocolates Ferrero Rocher en el centro", 
 		"price": 17.80, 
 		"img_path": "/src/assets/images/CorazonGirasoles.webp",
-		"alt": "Corazón de Girasoles"
+		"alt": "Corazón de Girasoles",
+		"rating": {
+      		"rate": 3.5,
+      		"count": 540
+    	}
 	},
 	{ 
 		"id": 2, 
@@ -15,7 +19,11 @@
 		"description": "Elegante fondo de Rosas Rojas con letras en el centro formadas con Rosas Blancas", 
 		"price": 10.00, 
 		"img_path": "/src/assets/images/LetraRosas.jpg",
-		"alt": "Letra de Rosas"
+		"alt": "Letra de Rosas",
+		"rating": {
+      		"rate": 4.7,
+      		"count": 557
+    	}
 	},
 	{ 
 		"id": 3, 
@@ -24,7 +32,11 @@
 		"description": "Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado", 
 		"price": 15.00, 
 		"img_path": "/src/assets/images/Bouquet-RosasRosadas_1280.jpg",
-		"alt": "Bouquet de Rosas Pastel"
+		"alt": "Bouquet de Rosas Pastel",
+		"rating": {
+      		"rate": 5,
+      		"count": 1235
+    	}
 	},
 	{ 
 		"id": 4, 
@@ -33,7 +45,11 @@
 		"description": "Colorido arreglo de Rosas variadas de diferente tipo en una hermosa caja cilíndrica", 
 		"price": 24.00, 
 		"img_path": "/src/assets/images/valentine-BouquetRegaloRosasClaras_1280.jpg",
-		"alt": "Caja Bouquet de Rosas Claras"
+		"alt": "Caja Bouquet de Rosas Claras",
+		"rating": {
+      		"rate": 4.2,
+      		"count": 2047
+    	}
 	},
 	{ 
 		"id": 5, 
@@ -42,7 +58,11 @@
 		"description": "Ramo de Lilas elegantemente armado", 
 		"price": 12.00, 
 		"img_path": "/src/assets/images/Bouquet-Lilas_1280.jpg",
-		"alt": "Bouquet de Lilas"
+		"alt": "Bouquet de Lilas",
+		"rating": {
+      		"rate": 3.9,
+      		"count": 410
+    	}
 	},
 	{ 
 		"id": 6, 
@@ -51,7 +71,11 @@
 		"description": "Sofisticado arreglo circular con flores verdes y lavanda, de aspecto mágico y encantador", 
 		"price": 35.00, 
 		"img_path": "/src/assets/images/Bouquet-VerdeSublime_1280.jpg",
-		"alt": "Bouquet Verde Sublime"
+		"alt": "Bouquet Verde Sublime",
+		"rating": {
+      		"rate": 3.5,
+      		"count": 131
+    	}
 	},
 	{ 
 		"id": 7, 
@@ -60,7 +84,11 @@
 		"description": "Ramo de Flores violetas abiertas, irradia romanticismo", 
 		"price": 7.00, 
 		"img_path": "/src/assets/images/Ramo-Violetas_1280.jpg",
-		"alt": "Ramo de Violetas Románticas"
+		"alt": "Ramo de Violetas Románticas",
+		"rating": {
+      		"rate": 4.3,
+      		"count": 1185
+    	}
 	},
 	{ 
 		"id": 8, 
@@ -69,7 +97,11 @@
 		"description": "Elegante vasija con rosas y flores de colores claros", 
 		"price": 18.00, 
 		"img_path": "/src/assets/images/vase-FloresClaras_1280.jpg",
-		"alt": "Florero de Flores Claras"
+		"alt": "Florero de Flores Claras",
+		"rating": {
+      		"rate": 4.8,
+      		"count": 785
+    	}
 	},
 	{ 
 		"id": 9, 
@@ -78,7 +110,11 @@
 		"description": "Fino ramo armado con rosas blancas puras y rosadas, con un aspecto excelso", 
 		"price": 19.99, 
 		"img_path": "/src/assets/images/wedding-BouquetVinculo_1280.jpg",
-		"alt": "Bouquet Vínculo"
+		"alt": "Bouquet Vínculo",
+		"rating": {
+      		"rate": 3.4,
+      		"count": 140
+    	}
 	},
 	{ 
 		"id": 10, 
@@ -87,7 +123,11 @@
 		"description": "Una canasta con flores variadas, muy usadas en épocas de ayer y hoy", 
 		"price": 11.20, 
 		"img_path": "/src/assets/images/Clasico.webp",
-		"alt": "Canasta Clásica"
+		"alt": "Canasta Clásica",
+		"rating": {
+      		"rate": 1.4,
+      		"count": 20
+    	}
 	},
 	{ 
 		"id": 11, 
@@ -96,7 +136,11 @@
 		"description": "Vaso sobrio con Flores y Ramas de colores contrastantes, producen calma y vitalidad, perfecto para padres", 
 		"price": 10.00, 
 		"img_path": "/src/assets/images/Paternal.webp",
-		"alt": "Arreglo Paternal"
+		"alt": "Arreglo Paternal",
+		"rating": {
+      		"rate": 2.8,
+      		"count": 259
+    	}
 	},
 	{ 
 		"id": 12, 
@@ -105,7 +149,11 @@
 		"description": "Arreglo grande de Rosas Blancas, magistral con un toque clásico", 
 		"price": 11.99, 
 		"img_path": "/src/assets/images/Seniorial.jpg",
-		"alt": "Arreglo Señorial"
+		"alt": "Arreglo Señorial",
+		"rating": {
+      		"rate": 1.2,
+      		"count": 53
+    	}
 	},
 	{ 
 		"id": 13, 
@@ -114,7 +162,11 @@
 		"description": "Tulipanes para aquellos de gustos específicos, con un color vibrante", 
 		"price": 9.99, 
 		"img_path": "/src/assets/images/Tulipanes_1280.jpg",
-		"alt": "Tulipanes Paternales"
+		"alt": "Tulipanes Paternales",
+		"rating": {
+      		"rate": 0.5,
+      		"count": 47
+    	}
 	},
 	{ 
 		"id": 14, 
@@ -123,7 +175,11 @@
 		"description": "Con flores variadas, un balance entre variedad y elegancia suprema, viene con una vasija rectangular de piedra labrada, una pieza artesanal y artística de estilo renacentista que le da el toque supremo", 
 		"price": 15.99, 
 		"img_path": "/src/assets/images/vase-Imperial_1280.jpg",
-		"alt": "Florero Imperial"
+		"alt": "Florero Imperial",
+		"rating": {
+      		"rate": 3.1,
+      		"count": 389
+    	}
 	},
 	{ 
 		"id": 15, 
@@ -132,7 +188,11 @@
 		"description": "Rosas Blancas y Amarillas en una caja de obsequio con un lacito, elegante y detallista", 
 		"price": 24.99, 
 		"img_path": "/src/assets/images/Bouquet-RosasBlancasAmarillas_1280.jpg",
-		"alt": "Rosas Blancas y Amarillas"
+		"alt": "Rosas Blancas y Amarillas",
+		"rating": {
+      		"rate": 4.3,
+      		"count": 978
+    	}
 	},
 	{ 
 		"id": 16, 
@@ -141,7 +201,11 @@
 		"description": "Fino entramado de Rosas Blancas y Lirios, idóneo para familiares y amigos, para aquellos a quien desee mostrarles confianza", 
 		"price": 12.99, 
 		"img_path": "/src/assets/images/Bouquet-RosasBlancasLirios_1280.jpg",
-		"alt": "Bouquet de Rosas Blancas y Lirios"
+		"alt": "Bouquet de Rosas Blancas y Lirios",
+		"rating": {
+      		"rate": 4.8,
+      		"count": 1045
+    	}
 	},
 	{ 
 		"id": 17, 
@@ -150,7 +214,11 @@
 		"description": "Supremamente elegante entramado de Rosas y Flores coloridas, de tonos pasteles, estupendo obsequio desbordante de elegancia", 
 		"price": 21.99, 
 		"img_path": "/src/assets/images/Bouquet-ColoridoDiverso_1280.jpg",
-		"alt": "Bouquet Colorido Diverso"
+		"alt": "Bouquet Colorido Diverso",
+		"rating": {
+      		"rate": 5,
+      		"count": 3891
+    	}
 	},
 	{ 
 		"id": 18, 
@@ -159,7 +227,11 @@
 		"description": "Canasta de Girasoles con Rosas, acojedor y de estilo hogareño", 
 		"price": 18.99, 
 		"img_path": "/src/assets/images/Canasta-GirasolesRosasClaras_1280.jpg",
-		"alt": "Canasta de Girasoles y Rosas Claras"
+		"alt": "Canasta de Girasoles y Rosas Claras",
+		"rating": {
+      		"rate": 3.3,
+      		"count": 2023
+    	}
 	},
 	{ 
 		"id": 19, 
@@ -168,7 +240,11 @@
 		"description": "Frutas tropicales frescas: sandia, arándanos, moras y frambuesas", 
 		"price": 9.99, 
 		"img_path": "/src/assets/images/Frutal_Gourmet_BerrySandia_1280.jpg",
-		"alt": "Berry Sandia"
+		"alt": "Berry Sandia",
+		"rating": {
+      		"rate": 4.5,
+      		"count": 241
+    	}
 	},
 	{ 
 		"id": 20, 
@@ -177,7 +253,11 @@
 		"description": "Un toque gourmet con frutas seleccionadas sobre una base de melón, ideal para regalar a los más exigentes", 
 		"price": 5.50, 
 		"img_path": "/src/assets/images/Frutal_Gourmet_Piqueos-2048x2048.jpg",
-		"alt": "Piqueos"
+		"alt": "Piqueos",
+		"rating": {
+      		"rate": 3.4,
+      		"count": 127
+    	}
 	},
 	{ 
 		"id": 21, 
@@ -186,7 +266,11 @@
 		"description": "Una copa con frutas adecuadas, tanto diuréticas como para el sistema digestivo", 
 		"price": 7.00, 
 		"img_path": "/src/assets/images/Frutal_Gourmet_CopaSaludable-2048x2048.jpg",
-		"alt": "Copa Saludable"
+		"alt": "Copa Saludable",
+		"rating": {
+      		"rate": 4.1,
+      		"count": 347
+    	}
 	},
 	{ 
 		"id": 22, 
@@ -195,7 +279,11 @@
 		"description": "Un toque gourmet excelso y premium, con frutas tropicales, decoradas de manera exquisita", 
 		"price": 11.99, 
 		"img_path": "/src/assets/images/Frutales_Gourmet_SunnyBlue-2048x2048.jpg",
-		"alt": "Sunny Blue"
+		"alt": "Sunny Blue",
+		"rating": {
+      		"rate": 3.8,
+      		"count": 250
+    	}
 	},
 	{ 
 		"id": 23, 
@@ -204,7 +292,11 @@
 		"description": "Frutas cortadas en rodajas, con forma de flor, con pistachos, frambuesas y moras", 
 		"price": 15.99, 
 		"img_path": "/src/assets/images/Frutales_Gourmet_Degustacion-2048x2048.jpg",
-		"alt": "Degustación"
+		"alt": "Degustación",
+		"rating": {
+      		"rate": 2.9,
+      		"count": 371
+    	}
 	},
 	{ 
 		"id": 24, 
@@ -213,7 +305,11 @@
 		"description": "Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir", 
 		"price": 2.99, 
 		"img_path": "/src/assets/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp",
-		"alt": "Rebanadas Frutales"
+		"alt": "Rebanadas Frutales",
+		"rating": {
+      		"rate": 3.1,
+      		"count": 543
+    	}
 	},
 	{ 
 		"id": 25, 
@@ -222,7 +318,11 @@
 		"description": "Vaso de Fresas naturales con Fresas bañadas en chocolate derretido, adornadas con chocolate blanco y aderezadas con maní", 
 		"price": 13.99, 
 		"img_path": "/src/assets/images/Frutales_ChocoFresas_BaniadoParcial-2048x2048.jpg",
-		"alt": "Bañado Parcial"
+		"alt": "Bañado Parcial",
+		"rating": {
+      		"rate": 4.3,
+      		"count": 981
+    	}
 	},
 	{ 
 		"id": 26, 
@@ -231,7 +331,11 @@
 		"description": "Un variado vaso con fresas naturales, y bañadas en chocolate pero aderezadas con diferentes deliciosos aditivos entre maní, coco, chocolate blanco y el que tu elijas", 
 		"price": 15.99, 
 		"img_path": "/src/assets/images/Frutales_ChocoFresas_Multisabor-2048x2048.jpg",
-		"alt": "Multisabor"
+		"alt": "Multisabor",
+		"rating": {
+      		"rate": 4.5,
+      		"count": 1938
+    	}
 	},
 	{ 
 		"id": 27, 
@@ -240,7 +344,11 @@
 		"description": "Para los amantes del chocolate puro, son Fresas bañadas en puro chocolate negro, enfriadas para un toque empastado", 
 		"price": 14.99, 
 		"img_path": "/src/assets/images/Frutales_ChocoFresas_Empastadas-2048x2048.jpg",
-		"alt": "Empastadas"
+		"alt": "Empastadas",
+		"rating": {
+      		"rate": 3.7,
+      		"count": 2415
+    	}
 	},
 	{ 
 		"id": 28, 
@@ -249,7 +357,11 @@
 		"description": "Una opción Gourmet Premium con Fresas bañadas en chololate suizo Magnum de la más alta calidad, aderezadas con diferentes aditamentos como coco rallado, chispas de chocolate y lineas de dulce de leche, curadas al frío, un manjar de dioses", 
 		"price": 20.99, 
 		"img_path": "/src/assets/images/Frutales_ChcoFresas_GlaciaresMagnum-2048x2048.jpg",
-		"alt": "Glaciares Magnum"
+		"alt": "Glaciares Magnum",
+		"rating": {
+      		"rate": 5,
+      		"count": 4893
+    	}
 	},
 	{ 
 		"id": 29, 
@@ -258,7 +370,11 @@
 		"description": "Son Fresas Glaciares Magnum con motivos de huevos de pascua, así como aderezos adicionales que le dan un valor agregado exquisito", 
 		"price": 17.99, 
 		"img_path": "/src/assets/images/Frutales_ChocoFresas_Fresas de Pascua-2048x2048.jpg",
-		"alt": "Fresas de Pascua"
+		"alt": "Fresas de Pascua",
+		"rating": {
+      		"rate": 4.7,
+      		"count": 3701
+    	}
 	},
 	{ 
 		"id": 30, 
@@ -267,7 +383,11 @@
 		"description": "Fresas, uvas y piñas, con lindas formas y en un arreglo con una alta elegancia", 
 		"price": 10.99, 
 		"img_path": "/src/assets/images/Frutal_Elegante_Plenitud.jpg",
-		"alt": "Plenitud"
+		"alt": "Plenitud",
+		"rating": {
+      		"rate": 2.1,
+      		"count": 293
+    	}
 	},
 	{ 
 		"id": 31, 
@@ -276,7 +396,11 @@
 		"description": "Fresas, melón, uvas y piña, en una arreglo con motivo de palmera, esteticamente elaborado", 
 		"price": 8.99, 
 		"img_path": "/src/assets/images/Frutal_Elegante_FrescuraPalmerina.webp",
-		"alt": "Frescura Palmerina"
+		"alt": "Frescura Palmerina",
+		"rating": {
+      		"rate": 2.4,
+      		"count": 418
+    	}
 	},
 	{ 
 		"id": 32, 
@@ -285,7 +409,11 @@
 		"description": "Alta dotación de Piña Hawaiana con fresas, delicioso para cualquier amante de la piña", 
 		"price": 12.99, 
 		"img_path": "/src/assets/images/Frutal_Elegante_PiniaHawaiana.jpg",
-		"alt": "Piña Hawaiana"
+		"alt": "Piña Hawaiana",
+		"rating": {
+      		"rate": 3.1,
+      		"count": 183
+    	}
 	},
 	{ 
 		"id": 33, 
@@ -294,7 +422,11 @@
 		"description": "Dotación personal de frutas variadas", 
 		"price": 3.00, 
 		"img_path": "/src/assets/images/Frutal_Surtido_Personal.jpg",
-		"alt": "Personal"
+		"alt": "Personal",
+		"rating": {
+      		"rate": 2.5,
+      		"count": 542
+    	}
 	},
 	{ 
 		"id": 34, 
@@ -303,7 +435,11 @@
 		"description": "Canasta familiar de frutas variadas, espectacular para obsequiar en reuniones familiares y amistosas", 
 		"price": 18.99, 
 		"img_path": "/src/assets/images/Frutal_Surtido_Familiar_1280.jpg",
-		"alt": "Familiar"
+		"alt": "Familiar",
+		"rating": {
+      		"rate": 4,
+      		"count": 798
+    	}
 	},
 	{ 
 		"id": 35, 
@@ -312,7 +448,11 @@
 		"description": "Una Gran Canasta con muchas frutas variadas, de pequeño y mediano tamaño", 
 		"price": 19.99, 
 		"img_path": "/src/assets/images/Frutal_Surtido_CanastaPoderosa_1280.png",
-		"alt": "Canasta Poderosa"
+		"alt": "Canasta Poderosa",
+		"rating": {
+      		"rate": 3.5,
+      		"count": 559
+    	}
 	},
 	{ 
 		"id": 36, 
@@ -321,7 +461,11 @@
 		"description": "Vaso con Fresas, Moras, Uvas y Galletas, adecuado para fiestas infantiles", 
 		"price": 10.99, 
 		"img_path": "/src/assets/images/Frutal_Infantil_Fiestero.webp",
-		"alt": "Fiestero"
+		"alt": "Fiestero",
+		"rating": {
+      		"rate": 1.1,
+      		"count": 285
+    	}
 	},
 	{ 
 		"id": 37, 
@@ -330,7 +474,11 @@
 		"description": "Canasta pequeña de paja toquilla armada artesanalmente, con frutas variadas como Fresas, Mandarinas, Uvas, Naranjas y Piña adornada como carita feliz con jalea de chocolate", 
 		"price": 14.99, 
 		"img_path": "/src/assets/images/Frutal_Infantiles_CanastitaFeliz-2048x2048.webp",
-		"alt": "Canastita Feliz"
+		"alt": "Canastita Feliz",
+		"rating": {
+      		"rate": 0.3,
+      		"count": 83
+    	}
 	},
 	{ 
 		"id": 38, 
@@ -339,7 +487,11 @@
 		"description": "Vaso Grande con frutas variadas como Fresas, Uvas, Piña y Naranja, ideal para compartir en grupo", 
 		"price": 20.99, 
 		"img_path": "/src/assets/images/Frutal_Infantil_CanastonGrupal-2048x2048.webp",
-		"alt": "Canastón Grupal"
+		"alt": "Canastón Grupal",
+		"rating": {
+      		"rate": 2.3,
+      		"count": 94
+    	}
 	},
 	{ 
 		"id": 39, 
@@ -348,6 +500,10 @@
 		"description": "Jarros personales con frutas variadas, con aderezos opcionales, adecuado para sorpresas para niños en fiestas infantiles", 
 		"price": 5.99, 
 		"img_path": "/src/assets/images/Frutal_Infantil_JarrosFrutales-2048x2048.jpg",
-		"alt": "Jarritos Frutales"
+		"alt": "Jarritos Frutales",
+		"rating": {
+      		"rate": 3.7,
+      		"count": 442
+    	}
 	}
 ]

@@ -4,7 +4,11 @@ import Layout from '../../layouts/Layout.astro';
 import products from '../../content/products.json';
 import categories from '../../content/categories.json';
 import productTypes from '../../content/product-types.json';
+import RatingStars from '@components/RatingStars.astro';
+import ChevronRight from '../../../public/icons/chevron_right_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg';
+import AddShoppingCart from '../../../public/icons/add_shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg';
 import { ClientRouter } from 'astro:transitions';
+export const prerender = true;
 
 export async function getStaticPaths() {
   return products.map( p => ( {params: {id: p.id}} ) );
@@ -20,7 +24,7 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
 <Layout title="Detalles" description="Detalles del producto seleccionado">
     <main>
         <div id="breadcrumbsDivId">
-            <a href="/ProductosServicios/">Productos y Servicios</a> <span id="chevron-right">&#10132;</span> 🌸 <span>Producto {id}</span>
+            <a href="/ProductosServicios/">Productos y Servicios</a> <ChevronRight id="chevronRightId" fill="indigo"/> 🌸<span>Producto {id}</span>
         </div>
         <div id="containerDivId">
             <div id="productImageDivId">
@@ -31,7 +35,18 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
                 <h1>{product?.name}</h1>
                 <h4><strong>{category?.name} - {type_name}</strong></h4>
                 <p>{product?.description}</p>
+                <div id="ratingParagraphContainerDivId">
+                    <p><strong>Calificación: </strong></p>
+                    <RatingStars rating={product?.rating.rate} maxStars={5} starSize={35} />
+                </div>
+                <p id="ratersCountId">
+                    { product?.rating.count } calificaciones
+                </p>
                 <h2>Precio: {productPrice}</h2>
+                <button id="buyButtonId">
+                    <AddShoppingCart width="2.5rem" height="2.5rem" fill="#ffffff" />
+                    Comprar
+                </button>
             </div>
         </div>
     </main>
@@ -43,14 +58,13 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
     margin-top: 90px;
 
     a, span{
-        font-size: x-small;
+        font-size: 11pt;
         border-radius: 8px;
         padding: 5px;
     }
 
     a{
-        background-color: indigo;
-        color: whitesmoke;
+        color: indigo;
         text-decoration: none;
 
         &:hover{
@@ -63,7 +77,7 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
         color: indigo;
     }
 
-    #chevron-right{
+    #chevronRightId{
         font-weight: bold;
         font-size: 14pt;
     }
@@ -114,8 +128,9 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
         }
         
         h2{
-            font-size: 30pt;
+            font-size: 20pt;
             color: var( --success-color );
+            padding: 1.5rem 0;
         }
 
         h3{
@@ -128,7 +143,7 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
         }
 
         h4{
-            padding-bottom: 3rem;
+            padding-bottom: 1rem;
         }
         
         p{
@@ -136,14 +151,50 @@ const productPrice = product?.price.toLocaleString( 'en-US', { style: 'currency'
             font-size: 16pt;
             line-height: 40pt;
         }
+
+        #ratingParagraphContainerDivId{
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            padding-top: 1rem;
+            gap: 20px;
+
+            p > strong {
+                font-size: 14pt;
+            }
+        }
+
+        #ratersCountId{
+            margin-top: -15px;
+            font-style: italic;
+            font-size: 10pt;
+        }
+
+        #buyButtonId{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            font-size: 25pt;
+            font-weight: bold;
+            padding: 1.3rem;
+            gap: 10px;
+        }
     }
 }
 </style>
 <script>
     document.addEventListener("astro:page-load", () => {
         const img : HTMLImageElement | null = document.querySelector('#productImageDivId img');
-        if ( img && img.clientHeight <= 260 ) { // Makes the image bigger if it is too small
+        if ( img && img.clientHeight <= 220 ) { // Makes the image bigger if it is too small
             img.style.minHeight = '70dvh';
         }
     });
+
+    document.querySelector( 'button' )?.addEventListener( 'click', () => {
+        alert( 'Gracias por elegir Petals&Fruits, esta funcionalidad no esta disponible debido a que este sitio es un prototipo de aprendizaje, gracias por ejecutar este sitio. 😊' );
+    } );
 </script>
