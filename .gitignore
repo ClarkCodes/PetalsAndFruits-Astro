@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Collections metadata cache directory
 .astro
+
+# Code Editor individual files, probably not needed in every environment
+.vscode/
