@@ -1,6 +1,7 @@
 ---
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
+import Notification from '@components/Notification.astro';
 const { title, description } = Astro.props
 ---
 <!doctype html>
@@ -15,6 +16,7 @@ const { title, description } = Astro.props
 	</head>
 	<body>
 		<Header />
+		<Notification id="notificationDialog"/>
 		<slot />
 		<Footer />
 	</body>
@@ -66,12 +68,26 @@ const { title, description } = Astro.props
 
 	    /* State Colors */
 
+		--success-surface-color: rgba(5, 40, 20, .8); /* HeroUI - Green900 */
+    	--success-surface-secondary-color: rgba(18, 161, 80, .7); /* HeroUI - Green600 */
+    	--success-accent-color: lightgreen; 
+
+    	--error-surface-color: rgba(176, 0, 32, .8);
+    	--error-surface-secondary-color: rgba(176, 0, 32, .7);
+    	--error-accent-color: var( --error-color );
+		--error-text-color: #f5f5f5cc;
+
+    	--warning-surface-color: rgba(98, 66, 14, .8); /* HeroUI - Yellow800 */
+    	--warning-surface-secondary-color: rgba(196, 132, 29, .7); /* HeroUI - Yellow600 */
+    	--warning-accent-color: #F9C97C; /* HeroUI - Yellow300 */
+
 	    --success-color : #00b85f;
 	    --success-color-30 : rgba( 0, 184, 95, .3 );
 	    --success-color-light : #00E676;
 		--success-color-light-10 : rgba(0, 230, 118, .1);
 	    --success-color-light-30 : rgba( 0, 230, 118, .3 );
-	    --error-color : #B00020;
+		--success-color-light-50 : rgba( 0, 230, 118, .5 );
+	    --error-color : #b00020;
 	    --error-color-light : #af8d93;
 	    --disabled-background-color : grey;
 	    --disabled-color : lightgray;
@@ -80,8 +96,14 @@ const { title, description } = Astro.props
 
 	    --blocks-border: 2px solid var( --primary-accent-color-darkmid ); 
 	    --border-white-d-color: #ddd;
+		--border-radius-small: 8px;
+		--border-radius-medium: 12px;
+		--border-radius-large: 16px;
+		--border-radius-giant: 20px;
+		--border-radius-full: 50%;
+		--border-radius-giant-full: 100%;
 		--margin-left-covering: -4.4%;
-		--width-covering: 100dvw;
+		--width-covering: 99.2dvw;
 	}
 
 	/* Fonts */
@@ -182,7 +204,7 @@ const { title, description } = Astro.props
 	    border: none;
 	    padding: 0.5rem 1rem;
 	    cursor: pointer;
-	    border-radius: 10px;
+	    border-radius: var( --border-radius-medium );
 	    height: fit-content;
 	    transition: background-color .1s ease;
 

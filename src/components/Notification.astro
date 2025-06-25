@@ -1,0 +1,214 @@
+---
+import CloseIcon from '../../public/icons/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg';
+import SuccessIcon from '../../public/icons/check_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg';
+import ErrorIcon from '../../public/icons/dangerous_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg';
+import WarningIcon from '../../public/icons/gpp_maybe_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg';
+const { id } = Astro.props
+---
+<dialog id={id} noti-type='' >
+    <div class="NotificationContainer">
+        <button class="CloseButton" aria-label="Cerrar notificación">
+            <CloseIcon class='CloseIconClass' width='20px' height='20px'/>   
+        </button>
+        <div class="IconBgClass">
+            <div class="SuccessIconDiv"><SuccessIcon class='SuccessIconClass' width='26px' height='26px'/></div>
+            <div class="ErrorIconDiv"><ErrorIcon class='ErrorIconClass' width='26px' height='26px'/></div>
+            <div class="WarningIconDiv"><WarningIcon class='WarningIconClass' width='26px' height='26px'/></div>
+        </div>
+        <div>
+            <span class="TitleClass"></span>
+            <div class="MessageClass"><p></p></div>
+        </div>
+    </div>
+</dialog>
+<style>
+    @keyframes fadeInNotificationDialog {
+        0%{
+            opacity:0;
+            top: 4%;
+        }
+        100%{
+            opacity:1;
+            top: 2%;
+        }
+    }
+
+    dialog { 
+        display: none;
+        position: fixed;
+        top: 2%; 
+        left: 50%; 
+        z-index: 5;
+        margin: 0;
+        transform: translateX( -50% );
+        height: fit-content;
+        width: fit-content;
+        max-width: 500px;
+        box-shadow: 2px 2px 12px rgba( 0, 0, 0, .3 );
+        border: none;
+        border-radius: var( --border-radius-large );
+        background: transparent;
+        backdrop-filter: blur( 12px );
+        opacity: 0;
+
+        --type: attr( noti-type type(<custom-ident>) );
+        --surface-color: if( 
+            style( --type: success ): var( --success-surface-color ); 
+            style( --type: error ): var( --error-surface-color ); 
+            else: var( --warning-surface-color )
+        ); 
+            
+        --surface-secondary-color: if( 
+            style( --type: success ): var( --success-surface-secondary-color ); 
+            style( --type: error ): var( --error-surface-secondary-color ); 
+            else: var( --warning-surface-secondary-color )
+        );
+
+        --accent-color: if( 
+            style( --type: success ): var( --success-accent-color ); 
+            style( --type: error ): var( --error-accent-color ); 
+            else: var( --warning-accent-color )
+        );
+
+        --text-color: if( 
+            style( --type: success ): var( --success-accent-color ); 
+            style( --type: error ): var( --error-text-color ); 
+            else: var( --warning-accent-color )
+        );
+
+        --close-icon-color: if( 
+            style( --type: error ): var( --error-text-color ); 
+            else: var( --accent-color )
+        );
+
+        &[open] {
+            display: flex;
+            animation: fadeInNotificationDialog .25s ease forwards;
+        }
+
+        &.closing { /* Clase para cerrar con animación  */
+            animation: fadeInNotificationDialog .7s ease reverse;
+        }
+
+        .NotificationContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            width: 100%;
+            height: fit-content;
+            padding: 1.5rem 0;
+            padding-left: 1.5rem;
+            padding-right: 2.5rem;
+            border: 2px solid var( --accent-color );
+            border-radius: var( --border-radius-large );
+            background-color: var( --surface-color );
+
+            .CloseButton {
+                position: absolute;
+                top: .4rem;
+                right: .4rem;
+                width: fit-content;
+                height: fit-content;
+                padding: .5rem;
+                border: none;
+                background: transparent;
+                border-radius: var( --border-radius-full );
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: .85;
+
+                &:hover {
+                    opacity: 1;
+                    background-color: var( --surface-secondary-color );
+                    transition: opacity .12s ease, background-color .12s ease;
+                }
+            
+                &:active {
+                    opacity: .8;
+                    background-color: var( --surface-secondary-color );
+                }
+
+                .CloseIconClass {
+                    fill: var( --close-icon-color );
+                }
+            }
+
+            .IconBgClass {
+                width: 45px;
+                min-width: 45px;
+                max-width: 45px;
+                height: 45px;
+                min-height: 45px;
+                max-height: 45px;
+                border-radius: var( --border-radius-full );
+                background-color: var( --surface-secondary-color );
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1rem;
+
+                .SuccessIconDiv {
+                    aspect-ratio: 1;
+
+                    display: if( 
+                        style( --type: success ): flex; 
+                        else: none
+                    );
+
+                    .SuccessIconClass {
+                        fill: var( --accent-color );
+                    }
+                }
+
+                .ErrorIconDiv {
+                    aspect-ratio: 1;
+
+                    display: if( 
+                        style( --type: error ): flex; 
+                        else: none
+                    );
+
+                    .ErrorIconClass {
+                        fill: var( --error-text-color );
+                    }
+                }
+
+                .WarningIconDiv {
+                    aspect-ratio: 1;
+
+                    display: if( 
+                        style( --type: warning ): flex; 
+                        else: none
+                    );
+
+                    .WarningIconClass {
+                        fill: var( --accent-color );
+                        display: flex;
+                        justify-content: end;
+                        align-items: center;
+                    }
+                }
+            }
+
+            & > div {
+                .TitleClass {
+                    color: var( --text-color );
+                    font-size: 12pt;
+                    font-weight: bold;
+                    text-align: center;
+                    padding-bottom: .5rem;
+                }
+
+                p {
+                    color: var( --text-color );
+                    line-height: 1.5;
+                    font-size: 10pt;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+</style>
