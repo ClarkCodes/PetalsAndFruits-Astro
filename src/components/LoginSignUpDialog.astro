@@ -1,0 +1,178 @@
+---
+import '../styles/FormStyles.css';
+import CloseIcon from '../../public/icons/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg';
+const { id, title } = Astro.props;
+const isRegister = title === 'Registro';
+---
+<dialog id={id}>
+    <div class="LoginSignUpContainer">
+        <button class="CloseButton" aria-label="Cerrar diálogo">
+            <CloseIcon width='26px' height='26px' fill='white'/>
+        </button>
+        <form method="dialog" class="LoginSignUpDialogForm">
+            <span class="TitleClass" >{title}</span>
+            <div class="FormContentClass">
+                <label for="EmailInputClass">Correo Electronico * :</label>
+                <input class="EmailInputClass" name="email" autocomplete="email" type="email" placeholder="Ej.: user@mail.com" required />
+        
+                <label for="PwdInputClass">Contraseña * :</label>
+                <input class="PwdInputClass" name="password" type="password" placeholder="Escriba la contraseña" required />
+        
+                <div id="confirmPwdDivId" style={isRegister ? 'display: flex;' : 'display: none;'}>
+                    <label for="ConfirmPwdInputClass">Confirmar Contraseña * :</label>
+                    <input class="ConfirmPwdInputClass" name="passwordConfirmation" type="password" placeholder="Repita la contraseña" id="confirmPwdInputId" required />
+                </div>
+            </div>
+            <button class="SubmitBtn" type="submit" aria-label="Entrar o Registrarse">{isRegister ? 'Registrarse' : 'Entrar'}</button>
+        </form>
+    </div>
+</dialog>
+<style>
+    @keyframes fadeInDialog {
+        0%{
+            opacity:0;
+            top: 18%;
+        }
+        100%{
+            opacity:1;
+            top: 15%;
+        }
+    }
+
+    @keyframes fadeInBackdrop {
+        0%{
+            opacity:0;
+        }
+        100%{
+            opacity:1;
+        }
+    }
+
+    dialog { 
+        display: none;
+        position: fixed;
+        top: 15%; 
+        left: 50%; 
+        transform: translateX( -50% );
+        height: fit-content;
+        width: 90%;
+        max-width: 480px;
+        border: none;
+        box-shadow: 2 2 12px rgba( 0, 0, 0, .3 );
+        background: transparent;
+        pointer-events: none;
+        opacity: 0;
+
+        &::backdrop {
+            background-color: rgba( 0, 0, 0, .3 );
+            backdrop-filter: blur( 40px );
+            opacity: 0;
+        }
+
+        &[open] {
+            display: flex;
+            pointer-events: auto;
+            animation: fadeInDialog .25s ease forwards;
+
+            &::backdrop {
+                animation: fadeInBackdrop .25s ease forwards;
+            } 
+        }
+
+        /* Clase para cerrar con animación  */
+        &.closing {
+            animation: fadeInDialog .7s ease reverse;
+
+            &::backdrop {
+                animation: fadeInBackdrop .7s ease reverse;
+            }
+        }
+
+        .LoginSignUpContainer {
+            display: block;
+            width: 100%;
+            height: fit-content;
+            padding-inline: 2.5rem;
+            color: whitesmoke; 
+            background-color: var( --primary-accent-color-darkest-70 );
+            border-radius: var( --border-radius-large );
+
+            .CloseButton {
+                position: absolute;
+                top: .7rem;
+                right: .7rem;
+                width: fit-content;
+                height: fit-content;
+                padding: .5rem;
+                
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: .85;
+
+                &:hover {
+                    opacity: 1;
+                    transition: opacity .12s ease-in;
+                }
+            
+                &:active {
+                    opacity: .8;
+                }
+            }
+
+            .LoginSignUpDialogForm { 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center;
+                justify-content: center;
+                gap: 1em;
+                font-size: 18pt;
+
+                .TitleClass {
+                    color: white;
+                    font-family: 'Poppins';
+                    font-size: 24pt;
+                    font-weight: bold;
+                    text-align: center;
+                    padding-top: 4rem;
+                    padding-bottom: 1rem;
+                }
+                
+                .FormContentClass {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    justify-content: center;
+                    width: 100%;
+                    gap: .5rem;
+
+                    input {
+                        margin-bottom: 1rem;
+                    }
+
+                    #confirmPwdDivId {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: center;
+                        gap: .5rem;
+                    }
+                }
+
+                .SubmitBtn{
+                    width: 70%;
+                    margin-top: .3rem;
+                    margin-bottom: 2.5rem;
+                    font-size: 16pt;
+                    font-weight: bold;
+                    letter-spacing: 1.1pt;
+                    border: 1px solid var( --primary-accent-color-light );
+                }
+            }
+        }
+    }
+</style>
