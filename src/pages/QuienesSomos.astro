@@ -85,17 +85,17 @@ export const prerender = true;
 	</main>
 </Layout>
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener( 'DOMContentLoaded', () => {
 		// Muestra el nombre del logro en un Alert
-    	document.querySelectorAll('.Logro').forEach( divEl => {
-			divEl?.addEventListener('click', () => {
+    	document.querySelectorAll( '.Logro' ).forEach( divEl => {
+			divEl?.addEventListener( 'click', () => {
       			alert( divEl.getAttribute( 'data-msj' ) );
     		});
 		} );
 
 		// Cambia el contenido de un párrafo al hacer doble clic
-		document.querySelectorAll('.BiSectionTextDiv p').forEach( pEl => {
-			pEl?.addEventListener('dblclick', () => {
+		document.querySelectorAll( '.BiSectionTextDiv p' ).forEach( pEl => {
+			pEl?.addEventListener( 'dblclick', () => {
 				pEl.innerHTML = "¡Gracias por visitarnos! Estamos felices de compartir nuestra historia contigo.";
     		});
 		} );
